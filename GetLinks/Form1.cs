@@ -198,7 +198,7 @@ namespace GetLinks
                 lblStatus.Invoke(setState, "Processing " + curItem.URL);
                 
                 curItem.Title = StringWorker.GetTitle(cache);
-                FSWorker.SaveCache(cache, curItem.URL.Substring(curItem.URL.IndexOf("//") + 1));       ////remove!!!
+                //FSWorker.SaveCache(cache, curItem.URL.Substring(curItem.URL.IndexOf("//") + 1));       ////remove!!!
 
                 if ((from u in uriRes where u.URL.Substring(u.URL.LastIndexOf('/')).Equals(curItem.URL.Substring(curItem.URL.LastIndexOf('/'))) select u).Count() < 1)
                 {
@@ -238,7 +238,7 @@ namespace GetLinks
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            FSWorker.ClearCache();      // cleanup
+            //FSWorker.ClearCache();      // cleanup
         }
     }
 }
