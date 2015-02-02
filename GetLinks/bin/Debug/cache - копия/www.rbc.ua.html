@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="ru-RU" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8" />
+    <title>Новости Украины и мира. Смотреть новости 2015 онлайн</title>    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="Content-language" content="ru">
+    <meta name="description" content="Последние новости Украины на портале РБК-Украина. Самые горячие и актуальные новости политики, экономики, спорта, а также новости мира, финансовые и деловые новости." />
+<meta name="keywords" content="новости, новости украины, новости дня, последние новости, информационное агентство, рбк, украина, rbc, rbk" />            <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,400&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="http://www.rbc.ua/static/respo/css/style.css?v4.2" type="text/css" media="all" />
+    <!--[if lt IE 9]>
+    <script src="http://www.rbc.ua/static/responsive/js/html5.js"></script>
+    <script src="http://www.rbc.ua/static/responsive/js/selectivizr-min.js"></script>
+    <![endif]-->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" media="all" href="http://www.rbc.ua/static/responsive/css/ie8.css" />
+    <![endif]-->
+    <!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="http://www.rbc.ua/static/respo/css/ie.css" /><![endif]-->
+                <link rel="shortcut icon" href="http://www.rbc.ua/static/imgs/favicon.ico" title="Favicon" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.rbc.ua/static/responsive/imgs/apple1.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://www.rbc.ua/static/responsive/imgs/apple2.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.rbc.ua/static/responsive/imgs/apple3.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://www.rbc.ua/static/responsive/imgs/apple4.png" />
+            <link rel="alternate" type="application/rss+xml" href="http://www.rbc.ua/static/rss/topnews.rus.rss.xml" title="Главные новости" />
+        <link rel="alternate" type="application/rss+xml" href="http://www.rbc.ua/static/rss/newsline.rus.rss.xml" title="Лента новостей" />
+                <script type="text/javascript" src ="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="http://www.rbc.ua/static/js/social-likes.min.js"></script>
+    <script type="text/javascript" src="http://www.rbc.ua/static/js/jquery.cookie.js"></script>
+    <script src="/static/js/jquery.ui.core.js"></script>
+    <script src="/static/js/jquery.ui.widget.js"></script>
+    <script src="/static/js/jquery.ui.datepicker.js"></script>
+    <script src="/static/js/jquery.ui.datepicker-ru.js"></script>
+    <script src="/static/respo/js/jquery.als-1.7.min.js"></script>
+    
+    <!--[if lt IE 9]>
+    <script src="http://www.rbc.ua/static/responsive/js/html5.js"></script>
+    <script src="http://www.rbc.ua/static/responsive/js/selectivizr-min.js"></script>
+    <![endif]-->
+                         
+
+<script type="text/javascript">   
+    $(document).ready(function() {
+        jQuery('#menumobile').bind('change', function () {
+              var url = jQuery(this).val();
+              if (url) {
+                  window.location = url;
+              }
+              return false;
+        });
+        
+                    var swipes = [
+                {label:'Главная'},
+                {label:'Политика'},
+                {label:'Выборы 2014'},
+                {label:'Экономика'},
+                {label:'ГМК'},
+                {label:'Химпром'},
+                {label:'АПК'},
+                {label:'Строительство'},
+                {label:'Пищепром'},
+                {label:'Транспорт'},
+                {label:'ТЭК'},
+                {label:'Топливо'},
+                {label:'Авто'},
+                {label:'Недвижимость'},
+                {label:'Финансы'},
+                {label:'Общество'},
+                {label:'Экология'},
+                {label:'Технологии'},
+                {label:'Здоровье'},
+                {label:'Происшествия'},
+                {label:'Спорт'},
+                {label:'Безумный мир'},
+                {label:'Конфликт с Россией'},
+            ];
+            
+            var currentSwipe = 0;
+            var nextSwipe = (currentSwipe < swipes.length - 1) ? currentSwipe + 1 : 0;
+            var prevSwipe = (currentSwipe > 0) ? currentSwipe - 1 : swipes.length - 1;
+            
+                            if ($('body').width() < 767) {
+                    $.get('/mobileload?next='+nextSwipe+'&prev='+prevSwipe, function( data ) {
+                        $('.ajax-swipe-left').html(data.prev);
+                        $('.ajax-swipe-right').html(data.next);
+                    }, "json");
+                }
+                $(window).resize(function() {
+                    if ($('body').width() < 767 && ($('.ajax-swipe-left').is(':empty')) || $('.ajax-swipe-right').is(':empty')) {
+                        $.get('/mobileload?next='+nextSwipe+'&prev='+prevSwipe, function( data ) {
+                            $('.ajax-swipe-left').html(data.prev);
+                            $('.ajax-swipe-right').html(data.next);
+                        }, "json");
+                    }
+                });
+                        if ($('body').width() < 767) {
+                //$('.mobile-top-banners-slot-bottom', $('.mainarea')).append($('.mobile-top-banners .right', $('.mainarea')));
+            }
+            //var $banners = $('.mobile-top-banners', $('.mainarea'));
+            //var $banners_bottom = $('.mobile-top-banners-slot-bottom', $('.mainarea'));
+            
+                    
+            $('.rail-handle-left').click(function() {
+                if ($('.ajax-swipe-left').is(':empty')){
+                    return;
+                }
+                //$('.footer').hide();
+                /*
+                $('.mobile-top-banners-slot', $('.ajax-swipe-left')).append($banners);            
+                $('.mobile-top-banners-slot-bottom', $('.ajax-swipe-left')).append($banners_bottom);
+                */
+                $('.mainarea').html($('.ajax-swipe-left').html());
+                /*
+                var $parent = $('.mainarea').parent();
+                $('.mainarea').hide().appendTo($('.mainarea')).css({right: $parent.width(), left: 'auto', position: 'absolute'});
+                $('.mainarea').show().animate({right: 0}, 500, function(){
+                    $('.mainarea').css({right: null, left: 'auto', position: null});
+                });
+                */
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+                currentSwipe = prevSwipe;
+                nextSwipe = (currentSwipe < swipes.length - 1) ? currentSwipe + 1 : 0;
+                prevSwipe = (currentSwipe > 0) ? currentSwipe - 1 : swipes.length - 1;
+                $.get('/mobileload?next='+nextSwipe+'&prev='+prevSwipe, function( data ) {
+                    $('.ajax-swipe-left').html(data.prev);
+                    $('.ajax-swipe-right').html(data.next);
+                }, "json");
+            });
+                        
+            $('.rail-handle-right').click(function() {
+                if ($('.ajax-swipe-right').is(':empty')){
+                    return;
+                }
+                //$('.footer').hide();
+                /*
+                $('.mobile-top-banners-slot', $('.ajax-swipe-right')).append($banners);
+                $('.mobile-top-banners-slot-bottom', $('.ajax-swipe-right')).append($banners_bottom);
+                */
+                $('.mainarea').html($('.ajax-swipe-right').html());
+                /*
+                var $parent = $('.mainarea').parent();
+                $('.mainarea').hide().appendTo($('.mainarea')).css({left: $parent.width(), right: 'auto', position: 'absolute'});
+                $('.mainarea').show().animate({left: 0, right: 'auto'}, 500, function(){
+                    $('.mainarea').css({left: null, right: 'auto', position: null});
+                });
+                */
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+                currentSwipe = nextSwipe;
+                nextSwipe = (currentSwipe < swipes.length - 1) ? currentSwipe + 1 : 0;
+                prevSwipe = (currentSwipe > 0) ? currentSwipe - 1 : swipes.length - 1;
+                $.get('/mobileload?next='+nextSwipe+'&prev='+prevSwipe, function( data ) {
+                    $('.ajax-swipe-left').html(data.prev);
+                    $('.ajax-swipe-right').html(data.next);
+                }, "json");                
+            });
+            
+                
+                    $('.markets').hover(function (){
+                $('.domains').show();
+            },
+            function(){
+                $('.domains').hide();
+            });
+        
+            var $ul = $('.domains .container ul li:has(div)');
+            $('.domains .container ul li .shadow').hide();
+            $ul.hover(function (){
+                $('.shadow', $(this)).show();
+                $('a.clickable', $(this)).addClass('active');
+            },
+            function(){
+                $('.shadow', $(this)).hide();
+                $('a.clickable', $(this)).removeClass('active');
+            });
+            
+            $('.rnewsline-links').click(function(){
+                $('.rnewsline-links').removeClass('active');
+                $('.menu-rnuws').removeClass('active');
+                $(this).addClass('active');
+                $('.rnewsline').hide();
+                $('#'+$(this).attr('id')+'-list').show();
+            });
+            $('.menu-rnuws').click(function(){
+                $('.rnewsline-links').removeClass('active');
+                $(this).addClass('active');
+                $('.rnewsline').hide();
+                $('#'+$(this).val()+'-list').show();
+            });
+            
+            
+            
+            $('.archdate').datepicker({
+                onSelect: function(dateText, inst) { 
+                    self.top.window.location.href = 'http://www.rbc.ua/rus/all/arc/'+$(this).val();
+                }
+            });
+                /*
+        var $maintopone_img = $('.maintop .one a img').attr('src');
+        var $maintopone_link = $('.maintop .one a').attr('href');
+        $('.maintop .two ul li a').hover(function(){
+            $maintopone_img = $('.maintop .one a img').attr('src');
+            $maintopone_link = $('.maintop .one a').attr('href');
+            $('.maintop .one a img').attr('src', $(this).attr('data-image'));
+            $('.maintop .one a').attr('href', $(this).attr('href'));
+        }, function() {
+            $('.maintop .one a img').attr('src', $maintopone_img);
+            $('.maintop .one a').attr('href', $maintopone_link);
+        });
+        */
+    });
+</script>    <script src="http://www.rbc.ua/static/js/adriver.core.2.js" type="text/javascript"></script>
+    <!-- (C)2000-2012 Gemius SA - gemiusAudience / rbc.ua_ros / Glavnaja stranica sajta -->
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var pp_gemius_identifier = new String('bJhATdPBqzmmOQ9OcQirD8QK.Kf_WZfzoZ3lfyeHhkv.t7');
+//--><!]]>
+</script>
+<script type="text/javascript" src="http://www.rbc.ua/static/gemius/ros/xgemius.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-11428483-1', 'auto');
+  ga('require', 'displayfeatures');
+    ga('set', 'dimension3', 'business');
+  ga('send', 'pageview');
+</script>
+                     <script type="text/javascript" src="//vk.com/js/api/openapi.js?115"></script>
+        <script type="text/javascript">VK.Widgets.Group("vk_groups", {mode: 0, width: "300", height: "200", color1: "FFFFFF", color2: "2B587A", color3: "5B7FA6"}, 26927022);</script>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&appId=509104182437435&version=v2.0";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    </head>
+<body class="">
+    <script>
+        window.google_analytics_uacct = "UA-11428483-3";
+    </script>
+    <div style="position:absolute;left:-1000px;top:-1000px">
+<!--LiveInternet counter--><script type="text/javascript"><!--
+new Image().src = "//counter.yadro.ru/hit;rbcua?r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random();//--></script><!--/LiveInternet-->
+
+</div>            <span class="rail-handle-left"><img src="/static/imgs/respo/left.png?1" width="13" height="38" /></span>
+        <span class="rail-handle-right"><img src="/static/imgs/respo/right.png?1" width="13" height="38" /></span>
+                <center>
+<!--  AdRiver code START. Type:AjaxJS Site: RBC SZ: rbc_business PZ: 1 BN: 1 -->
+<div id="adriver_banner_421790712"></div>
+<script type="text/javascript">
+    new adriver("adriver_banner_421790712", {sid:186717, keyword:'rus;mainpage', bt:52, sz:'rbc_business', bn:1, pz:1});
+</script>
+<!--  AdRiver code END  -->
+
+<!--  AdRiver code START. Type:AjaxJS Site: RBC SZ: rbc_business PZ: 3 BN: 1 -->
+<div id="adriver_banner_289776112"></div>
+<script type="text/javascript">
+    new adriver("adriver_banner_289776112", {sid:186717, keyword:'rus;mainpage', bt:52, sz:'rbc_business', bn:1, pz:3});
+</script>
+<!--  AdRiver code END  -->
+
+<!--  AdRiver code START. Type:AjaxJS Site: RBC SZ: rbc_business PZ: 1 BN: 11 -->
+<div id="adriver_banner_917360643"></div>
+<script type="text/javascript">
+    new adriver("adriver_banner_917360643", {sid:186717, keyword:'rus;mainpage', bt:52, sz:'rbc_business', bn:11, pz:1});
+</script>
+<!--  AdRiver code END  -->
+</center>
+
+ 
+            <div class="wrapper rubricsmenu hidemobo" style="position: static;">
+        <div class="container" style="position: relative;">
+            <ul>
+                <li class="first"><a href="http://www.rbc.ua/rus/newsline"><span>Новости</span></a></li>
+                <li><a href="http://www.rbc.ua/rus/exlusive"><span>Эксклюзив</span></a></li>
+                <li><a href="http://www.rbc.ua/rus/top/politics"><span>Политика</span></a></li>
+                <li><a href="http://www.rbc.ua/rus/top/economic"><span>Экономика</span></a></li>
+                <li class="markets">
+                    <a href="javascript:;"><span>Рынки</span></a>
+                    <div class="wrapper domains hidemobo">
+                        <div class="container">
+                            <ul>
+                                <li><a class="clickable" href="http://gmk.rbc.ua/">ГМК</a></li>
+                                <li><a class="clickable" href="http://himprom.rbc.ua/">Химпром</a></li>
+                                <li><a class="clickable" href="http://apk.rbc.ua/">АПК</a></li>
+                                <li><a class="clickable" href="http://development.rbc.ua/">Строительство</a></li>
+                                <li><a class="clickable" href="http://pishcheprom.rbc.ua/">Пищепром</a></li>
+                                <li><a class="clickable" href="http://transport.rbc.ua/">Транспорт</a></li>
+                                <li><a class="clickable" href="http://tek.rbc.ua/">ТЭК</a></li>
+                                <li><a class="clickable" href="http://toplivo.rbc.ua/">Топливо</a></li>
+                                <li><a class="clickable" href="http://avto.rbc.ua/">Авто</a></li>
+                                <li><a class="clickable" href="http://realt.rbc.ua/">Недвижимость</a></li>
+                                <li><a class="clickable" href="http://www.rbcua.com">Финансы</a></li>
+                                <li><a class="clickable" href="http://innovations.rbc.ua/">Технологии</a></li>
+                            </ul>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="http://www.rbc.ua/rus/top/society"><span>Общество</span></a></li>
+                <li><a href="http://www.rbc.ua/rus/top/accidents"><span>Происшествия</span></a></li>
+                <li><a href="http://www.rbc.ua/rus/top/sport"><span>Спорт</span></a></li>
+                <li><a target="_blank" href="http://marketing.rbc.ua/" rel="nofollow"><span>Исследования</span></a></li>
+                <li><a target="_blank" href="http://www.gismeteo.ua" rel="nofollow"><span>Погода</span></a></li>
+                            </ul>
+            <div class="clear"></div>
+        </div>
+    </div>
+<div class="wrapper header">
+    <div class="header-inner">
+        <a href="http://www.rbc.ua/" class="logo" title="РБК-Украина">
+            <img src="http://www.rbc.ua/static/imgs/respo/logo.png" alt="РБК-Украина" />
+        </a>
+        <div class="headerright">
+            <div class="left social hidemobo">
+                <a target="_blank" rel="nofollow" href="https://www.facebook.com/www.rbc.ua"><img src="http://www.rbc.ua/static/imgs/respo/ico-facebook.png" /></a>
+                <a target="_blank" rel="nofollow" href="https://vk.com/rbc_ukraine"><img src="http://www.rbc.ua/static/imgs/respo/ico-vk.png" /></a>
+                <a target="_blank" rel="nofollow" href="https://twitter.com/rbc_ukraine"><img src="http://www.rbc.ua/static/imgs/respo/ico-twitter.png" /></a>
+                <a target="_blank" rel="nofollow" href="http://www.rbc.ua/rus/rss.shtml"><img src="http://www.rbc.ua/static/imgs/respo/ico-rss.png" /></a>
+            </div>
+            <div class="right">
+                <div class="langs">
+                    <a  class="active" href="http://www.rbc.ua/">рус</a>
+                    <a  href="http://www.rbc.ua/ukr">укр</a>
+                    <div class="clear"></div>
+                </div>
+                <div class="topsearch hidemobo">
+                    <form action="http://www.rbc.ua/rus/search.shtml" method="get" name="search">
+                        <input name="sub" value="all" type="hidden">
+                        <input name="how" value="tm" type="hidden">
+                        <input type="hidden" value="main_news" name="cat[]" />
+                        <input class="sinp" type="text" onfocus="this.value = '';" value="по новостям" name="search_text" />
+                        <input class="ssbmt" type="submit" title="Найти" value="" />
+                    </form>
+                    <div class="clear"></div>
+                </div>
+                <div class="mobomenu showmobo">
+                    <a id="menumobilebtn" href="javascript:;"><img src="http://www.rbc.ua/static/imgs/respo/menu.png" /></a>
+                    <select id="menumobile">
+                        <option value="#">Перейти к...</option>
+                        <option value="http://www.rbc.ua/">&nbsp;Главная</option>
+                                                                                    <option value="http://www.rbc.ua/rus/tag/ato_07082014">&nbsp; &nbsp; &ndash;&nbsp;Новости АТО</option>
+                                                            <option value="http://www.rbc.ua/rus/currency/USD">&nbsp; &nbsp; &ndash;&nbsp;Курс доллара</option>
+                                                                            <option value="http://www.rbc.ua/rus/newsline">&nbsp;Новости </option>
+                        <option value="http://www.rbc.ua/rus/top/politics">&nbsp;Политика </option>
+                        <option value="http://vibori2014.rbc.ua">&nbsp; &nbsp; &ndash;&nbsp;Выборы 2014</option>
+                        <option value="http://ukraine.rbc.ua">&nbsp; &nbsp; &ndash;&nbsp;Ситуация в Украине</option>
+                        <option value="http://conflict.rbc.ua">&nbsp; &nbsp; &ndash;&nbsp;Конфликт с Россией</option>
+                        <option value="http://www.rbc.ua/rus/exlusive">&nbsp;Эксклюзив</option>
+                        <option value="http://www.rbc.ua/rus/top/economic">&nbsp;Экономика</option>
+                        <option value="http://gmk.rbc.ua/">&nbsp; &nbsp; &ndash;&nbsp;ГМК</option>
+                        <option value="http://himprom.rbc.ua/">&nbsp; &nbsp; &ndash;&nbsp;Химпром</option>
+                        <option value="http://apk.rbc.ua/">&nbsp; &nbsp; &ndash;&nbsp;АПК</option>
+                        <option value="http://development.rbc.ua/">&nbsp; &nbsp; &ndash;&nbsp;Строительство</option>
+                        <option value="http://pishcheprom.rbc.ua/">&nbsp; &nbsp; &ndash;&nbsp;Пищепром</option>
+                        <option value="http://transport.rbc.ua/">&nbsp; &nbsp; &ndash;&nbsp;Транспорт</option>
+                        <option value="http://tek.rbc.ua/">&nbsp; &nbsp; &ndash;&nbsp;ТЭК</option>
+                        <option value="http://toplivo.rbc.ua/">&nbsp; &nbsp; &ndash;&nbsp;Топливо</option>
+                        <option value="http://avto.rbc.ua/">&nbsp; &nbsp; &ndash;&nbsp;Авто</option>
+                        <option value="http://realt.rbc.ua/">&nbsp; &nbsp; &ndash;&nbsp;Недвижимость</option>
+                        <option value="http://finance.rbc.ua/">&nbsp; &nbsp; &ndash;&nbsp;Финансы</option>
+                        <option value="http://www.rbc.ua/rus/top/society">&nbsp;Общество</option>
+                        <option value="http://ecology.rbc.ua/">&nbsp; &nbsp; &ndash;&nbsp;Экология</option>
+                        <option value="http://innovations.rbc.ua/">&nbsp; &nbsp; &ndash;&nbsp;Технологии</option>
+                        <option value="http://medicine.rbc.ua/">&nbsp; &nbsp; &ndash;&nbsp;Здоровье</option>
+                        <option value="http://www.rbc.ua/rus/top/accidents">&nbsp;Происшествия</option>
+                        <option value="http://www.rbc.ua/rus/top/sport">&nbsp;Спорт</option>
+                        <option value="http://www.rbc.ua/rus/top/funs">&nbsp;Безумный мир</option>
+                        <option value="http://www.rbc.ua/rus/digests">&nbsp;Обзор СМИ</option>
+                        <option value="http://www.rbc.ua/rus/all/arc">&nbsp;Архив</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="headerdate hidemobile">
+            Суббота, 31 января 2015        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="wrappermobilesearch">
+    <form action="http://www.rbc.ua/rus/search.shtml" method="get" name="search">
+        <input name="sub" value="all" type="hidden">
+        <input name="how" value="tm" type="hidden">
+        <input type="hidden" value="main_news" name="cat[]" />
+        
+        <input class="mobsearchtext" type="text" onfocus="this.value = '';" value="по новостям" name="search_text" />
+        <a class="mobsearchlink" href="http://www.rbc.ua/rus/all/arc">Архив</a> 
+        <input class="mobsearchbutton" type="submit" title="Найти" value="" />
+    </form>
+    <div class="clear"></div>
+</div>                    <div class="wrapper hottopics hidemobile">
+        <div class="container">
+                            <a href="http://www.rbc.ua/rus/tag/ato_07082014" target="_blank">Новости АТО</a>
+                            <a href="http://www.rbc.ua/rus/currency/USD" target="_blank">Курс доллара</a>
+                    </div>
+    </div>
+        <!--  AdRiver code START. Type:AjaxJS Site: RBC SZ: rbc_business PZ: 1 BN: 2 -->
+<div id="adriver_banner_1880569043"></div>
+<script type="text/javascript">
+    new adriver("adriver_banner_1880569043", {sid:186717, keyword:'rus;mainpage', bt:52, sz:'rbc_business', bn:2, pz:1});
+</script>
+<!--  AdRiver code END  -->    <div id="swipemain" class="wrapper relative">
+        <div id="cbtopd" class="clear_big" style="background: #fff;"></div>
+        <div class="ajax-swipe-left"></div>
+        <div class="ajax-swipe-right"></div>
+        <div class="" style="padding:0 10px;">
+            <div class="container">
+                <div class="col-left">
+                    <div class="mainarea">
+            <div class="maintop">
+            <div class="one">
+                <h1>Главные новости</h1>
+                                                                    <a href="http://conflict.rbc.ua/rus/trehstoronnyaya-kontaktnaya-gruppa-podgotovila-dokument-31012015032200"><img class="onetopmainimg" src="http://www.rbc.ua/static/img/3/8/38401554677777777777777_250x200.jpg" /></a>
+                                <p>
+                    <a class="ncolor1" href="http://conflict.rbc.ua/rus/trehstoronnyaya-kontaktnaya-gruppa-podgotovila-dokument-31012015032200" data-image="http://www.rbc.ua/static/img/3/8/38401554677777777777777_250x200.jpg">
+                        Трехсторонняя контактная группа подготовила документ по урегулированию ситуации на Донбассе для переговоров в Минске, - ОБСЕ                                                                    </a>
+                </p>
+            </div>
+            <div class="two">
+                <ul>
+                                                                                                                                            <li>
+                            <a class="ncolor1" href="http://conflict.rbc.ua/rus/obse-zafiksirovala-peremeshchenie-voennoy-tehniki-i-transporta-31012015023500" data-image="http://www.rbc.ua/static/img/9/6/96210_2_250x200.jpg">
+                                <img src="http://www.rbc.ua/static/img/9/6/96210_2_250x200.jpg" class="hidtopimg" />
+                                ОБСЕ зафиксировала перемещение в ДНР военной техники и транспорта без опознавательных знаков                                                                                            </a>
+                        </li>
+                                                                                                                    <li>
+                            <a class="ncolor1" href="http://www.rbc.ua/rus/news/politics/gosdep-ssha-osudil-obstrel-v-donetske-30-yanvarya-i-prizval-k-31012015013500" data-image="http://www.rbc.ua/static/img/_/v/_vatnik_raznoe_psaki_klichko_1196569________250x200.jpg">
+                                <img src="http://www.rbc.ua/static/img/_/v/_vatnik_raznoe_psaki_klichko_1196569________250x200.jpg" class="hidtopimg" />
+                                Госдеп США осудил обстрел в Донецке 30 января и призвал к проведению расследования                                                                                            </a>
+                        </li>
+                                                                                                                    <li>
+                            <a class="ncolor1" href="http://www.rbc.ua/rus/news/accidents/zaderzhannye-zhurnalistki-lifenews-prinuditelno-vyvezeny-s-31012015000500" data-image="http://www.rbc.ua/static/img/l/u/lubkivski_markian_660x370_1_250x200.jpg">
+                                <img src="http://www.rbc.ua/static/img/l/u/lubkivski_markian_660x370_1_250x200.jpg" class="hidtopimg" />
+                                Задержанные журналистки LifeNews принудительно вывезены с территории Украины, - СБУ                                                                                            </a>
+                        </li>
+                                                                                                                    <li>
+                            <a class="ncolor1" href="http://toplivo.rbc.ua/rus/tsena-nefti-marki-brent-podnyalas-vyshe-53-doll-barrel-30012015234300" data-image="http://www.rbc.ua/static/img/b/8/b8qqzueieaad9bv_660x370_1_250x200.jpg">
+                                <img src="http://www.rbc.ua/static/img/b/8/b8qqzueieaad9bv_660x370_1_250x200.jpg" class="hidtopimg" />
+                                Цена нефти марки Brent поднялась выше 53 долл./баррель                                                                                            </a>
+                        </li>
+                                                                                                                    <li>
+                            <a class="ncolor1" href="http://conflict.rbc.ua/rus/ukraina-v-blizhayshee-vremya-obratitsya-k-oon-s-prizyvom-priznat-30012015214400" data-image="http://www.rbc.ua/static/img/3/8/38_tn_250x200.jpg">
+                                <img src="http://www.rbc.ua/static/img/3/8/38_tn_250x200.jpg" class="hidtopimg" />
+                                Украина в ближайшее время обратится к ООН с призывом признать РФ спонсором терроризма, - посол                                                                                            </a>
+                        </li>
+                                                                                                        </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear_big"></div>
+    </div>    <div class="rblock exlusive" style="padding: 0;">
+        <h3 style="font-size:13px;"><a href="/rus/exlusive">Эксклюзив</a></h3>
+        <ul class="pic">
+                                                            <li>
+                    <span class="img">
+                        <a href="http://www.rbc.ua/rus/analytics/show/zakonotvorcheskoe-obespechenie-reform-i-evrointegratsii--30012015114200">
+                            <img width="90px" align="left" src="http://www.rbc.ua/static/img/9/1/91584322_oc3xoqyb25y_100x80.jpg">
+                        </a>
+                    </span>
+                    <span class="txt">
+                        <a href="http://www.rbc.ua/rus/analytics/show/zakonotvorcheskoe-obespechenie-reform-i-evrointegratsii--30012015114200">Законотворческое обеспечение реформ и евроинтеграции, или Есть ли у вас план, мистер Фикс?</a>
+                    </span>
+                    <div class="clear"></div>
+                </li>
+                                                            <li>
+                    <span class="img">
+                        <a href="http://www.rbc.ua/rus/interview/politics/giya-getsadze-odnazhdy-gruziya-budet-kopirovat-ukrainskuyu-30012015111900">
+                            <img width="90px" align="left" src="http://www.rbc.ua/static/img/p/i/pic_102_100x80.jpg">
+                        </a>
+                    </span>
+                    <span class="txt">
+                        <a href="http://www.rbc.ua/rus/interview/politics/giya-getsadze-odnazhdy-gruziya-budet-kopirovat-ukrainskuyu-30012015111900">Гия Гецадзе: "Однажды Грузия будет копировать украинскую реформу"</a>
+                    </span>
+                    <div class="clear"></div>
+                </li>
+                                        <div class="clear"></div>
+        </ul>
+    </div>
+    <div class="clear_big"></div>
+<div class="newsline">
+                    <div class="toolbar hidemobile">
+            <div class="left">
+                 <span>Новости за</span>
+                 <input type="text" id="archdate" class="archdate" value="2015/01/31" />
+            </div>
+            <div class="right">
+                <a href="http://www.rbc.ua/rus/all/arc">Архив</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear_big"></div>
+        
+    <div id="rnewsline-0-list" class="rnewsline clear">
+        <ul>
+                             
+                   
+                                                                            <li class="item ncolor1 ">
+                        <span class="datetime">
+                            03:22                        </span>
+                        <span class="txt">
+                            <a href="http://conflict.rbc.ua/rus/trehstoronnyaya-kontaktnaya-gruppa-podgotovila-dokument-31012015032200">Трехсторонняя контактная группа подготовила документ по урегулированию ситуации на Донбассе для переговоров в Минске, - ОБСЕ</a>
+                                                                                                            </span>
+                    </li>
+                                                                                                <li class="item ncolor1 ">
+                        <span class="datetime">
+                            02:35                        </span>
+                        <span class="txt">
+                            <a href="http://conflict.rbc.ua/rus/obse-zafiksirovala-peremeshchenie-voennoy-tehniki-i-transporta-31012015023500">ОБСЕ зафиксировала перемещение в ДНР военной техники и транспорта без опознавательных знаков</a>
+                                                                                                            </span>
+                    </li>
+                                                                                                <li class="item ncolor1 ">
+                        <span class="datetime">
+                            01:54                        </span>
+                        <span class="txt">
+                            <a href="http://www.rbcua.com/rus/-glava-kryma-poobeshchal-zapustit-alternativnuyu-visa-i-mastercard-31012015015400">"Глава" Крыма пообещал запустить альтернативную Visa и Mastercard карточную систему до 1 мая, - СМИ</a>
+                                                                                                            </span>
+                    </li>
+                                                                                                <li class="item ncolor1 ">
+                        <span class="datetime">
+                            01:35                        </span>
+                        <span class="txt">
+                            <a href="http://www.rbc.ua/rus/news/politics/gosdep-ssha-osudil-obstrel-v-donetske-30-yanvarya-i-prizval-k-31012015013500">Госдеп США осудил обстрел в Донецке 30 января и призвал к проведению расследования</a>
+                                                                                                            </span>
+                    </li>
+                                                                                                <li class="item ncolor1 ">
+                        <span class="datetime">
+                            00:05                        </span>
+                        <span class="txt">
+                            <a href="http://www.rbc.ua/rus/news/accidents/zaderzhannye-zhurnalistki-lifenews-prinuditelno-vyvezeny-s-31012015000500">Задержанные журналистки LifeNews принудительно вывезены с территории Украины, - СБУ</a>
+                                                                                                            </span>
+                    </li>
+                                                                                <li class="dayend "><b>Новости за 30.01.2015</b></li>
+                                                            <li class="item ncolor1 ">
+                        <span class="datetime">
+                            23:43                        </span>
+                        <span class="txt">
+                            <a href="http://toplivo.rbc.ua/rus/tsena-nefti-marki-brent-podnyalas-vyshe-53-doll-barrel-30012015234300">Цена нефти марки Brent поднялась выше 53 долл./баррель</a>
+                                                                                                            </span>
+                    </li>
+                                                                                                <li class="item ncolor1 ">
+                        <span class="datetime">
+                            23:01                        </span>
+                        <span class="txt">
+                            <a href="http://www.rbc.ua/rus/news/accidents/mvd-rassleduet-pohishchenie-boytsa-aydara-vo-vremya-segodnyashnego-30012015230100">МВД расследует похищение бойца "Айдара" возле здания Минобороны, - Аваков</a>
+                                                                                                            </span>
+                    </li>
+                                                                                                <li class="item ncolor1 ">
+                        <span class="datetime">
+                            22:52                        </span>
+                        <span class="txt">
+                            <a href="http://tek.rbc.ua/rus/kolichestvo-gaza-v-phg-ukrainy-sokratilos-na-0-63---do-9-422-30012015214600">Количество газа в ПХГ Украины сократилось на 0,63% - до 9,422 млрд куб. м</a>
+                                                                                                            </span>
+                    </li>
+                                                                                                <li class="item ncolor1 ">
+                        <span class="datetime">
+                            22:37                        </span>
+                        <span class="txt">
+                            <a href="http://conflict.rbc.ua/rus/v-obse-zayavili-o-gotovnosti-vstretitsya-s-kontaktnoy-gruppoy-30012015223700">В ОБСЕ заявили о готовности встретиться с контактной группой в любое время</a>
+                                                                                                            </span>
+                    </li>
+                                                                                                <li class="item ncolor1 ">
+                        <span class="datetime">
+                            22:31                        </span>
+                        <span class="txt">
+                            <a href="http://toplivo.rbc.ua/rus/tsena-nefti-brent-v-2015-godu-mozhet-dostignut-58-3-doll-barrel--30012015193400">Цена нефти Brent в 2015 году может достигнуть 58,3 долл./баррель, - опрос Reuters</a>
+                                                                                                            </span>
+                    </li>
+                                                                                                <li class="item ncolor1 ">
+                        <span class="datetime">
+                            22:16                        </span>
+                        <span class="txt">
+                            <a href="http://www.rbc.ua/rus/news/politics/poroshenko-rasporyadilsya-sozdat-komitet-po-voprosam-razveddeyatelnosti-30012015221600">Порошенко распорядился создать комитет по вопросам разведдеятельности при Президенте</a>
+                                                                                                            </span>
+                    </li>
+                                                                                                <li class="item ncolor1 ">
+                        <span class="datetime">
+                            22:01                        </span>
+                        <span class="txt">
+                            <a href="http://conflict.rbc.ua/rus/v-rezultate-obstrela-boevikami-luganskogo-raneny-zhenshchina-30012015220100">В результате обстрела боевиками Луганского ранены женщина и ребенок</a>
+                                                                                                            </span>
+                    </li>
+                                                                                                <li class="item ncolor1 ">
+                        <span class="datetime">
+                            21:46                        </span>
+                        <span class="txt">
+                            <a href="http://conflict.rbc.ua/rus/ukraina-v-blizhayshee-vremya-obratitsya-k-oon-s-prizyvom-priznat-30012015214400">Украина в ближайшее время обратится к ООН с призывом признать РФ спонсором терроризма, - посол</a>
+                                                                                                            </span>
+                    </li>
+                                                                                                <li class="item ncolor1 ">
+                        <span class="datetime">
+                            21:32                        </span>
+                        <span class="txt">
+                            <a href="http://www.rbc.ua/rus/news/politics/zavod-krymskiy-titan-v-2014-g-sohranil-obemy-proizvodstva-30012015223400">Завод "Крымский титан" в 2014 г. сохранил объемы производства диоксида титана</a>
+                                                                                                            </span>
+                    </li>
+                                                                                                <li class="item ncolor1 ">
+                        <span class="datetime">
+                            21:17                        </span>
+                        <span class="txt">
+                            <a href="http://toplivo.rbc.ua/rus/tsena-na-neft-brent-podnyalas-vyshe-51-doll-barrel-30012015211700">Цена на нефть Brent поднялась выше 51 долл./баррель</a>
+                                                                                                            </span>
+                    </li>
+                                                                                                <li class="item ncolor1 hidemobile">
+                        <span class="datetime">
+                            21:14                        </span>
+                        <span class="txt">
+                            <a href="http://www.rbc.ua/rus/news/politics/rossiyskaya-delegatsiya-na-zasedanii-komiteta-pase-podderzhala-30012015211400">Российская делегация на заседании комитета ПАСЕ поддержала поправку по освобождению Савченко, - нардеп</a>
+                                                                                                            </span>
+                    </li>
+                                                                                                <li class="item ncolor1 hidemobile">
+                        <span class="datetime">
+                            20:59                        </span>
+                        <span class="txt">
+                            <a href="http://apk.rbc.ua/rus/eksportnye-tseny-na-podsolnechnoe-maslo-za-nedelyu-snizilis-30012015211400">Экспортные цены на подсолнечное масло за неделю снизились на 50 долл. /т - до 740-755 долл./т</a>
+                                                                                                            </span>
+                    </li>
+                                                                                                <li class="item ncolor1 hidemobile">
+                        <span class="datetime">
+                            20:45                        </span>
+                        <span class="txt">
+                            <a href="http://www.rbcua.com/rus/chistaya-pribyl-ukrainskogo-vtb-banka-v-2014-g-sostavila-30012015202100">Чистая прибыль украинского "ВТБ Банка" в 2014 г. составила 642,7 млн грн против убытка годом ранее</a>
+                                                                                                            </span>
+                    </li>
+                                                        </ul>
+        <p class="more" align="right">
+            <a href="/rus/newsline" style="margin:0;">Все новости &raquo;</a>
+        </p>
+    </div>
+            <div id="taglist-909-list" class="rnewsline clear" style="display: none;">
+            <ul>
+                            </ul>
+        </div>
+        <div id="taglist-2698-list" class="rnewsline clear" style="display: none;">
+            <ul>
+                            </ul>
+        </div>
+        <div id="taglist-2705-list" class="rnewsline clear" style="display: none;">
+            <ul>
+                            </ul>
+        </div>
+        <div id="taglist-2697-list" class="rnewsline clear" style="display: none;">
+            <ul>
+                            </ul>
+        </div>
+        <div id="taglist-2696-list" class="rnewsline clear" style="display: none;">
+            <ul>
+                            </ul>
+        </div>
+        <div id="taglist-2695-list" class="rnewsline clear" style="display: none;">
+            <ul>
+                            </ul>
+        </div>
+        <div id="taglist-2700-list" class="rnewsline clear" style="display: none;">
+            <ul>
+                            </ul>
+        </div>
+    </div>
+<div class="clear_big"></div>
+<div class="mobile-top-banners-slot-bottom"></div><div class="readalso">
+    <h3><a style="color:#42693d;" href="/rus/interview">Интервью</a></h3>
+    <ul>
+                                                                    <li>
+                    <div><a href="http://www.rbc.ua/rus/interview/politics/giya-getsadze-odnazhdy-gruziya-budet-kopirovat-ukrainskuyu-30012015111900"><img src="http://www.rbc.ua/static/img/p/i/pic_102_100x80.jpg" /></a></div>
+                    <a href="http://www.rbc.ua/rus/interview/politics/giya-getsadze-odnazhdy-gruziya-budet-kopirovat-ukrainskuyu-30012015111900">Гия Гецадзе: "Однажды Грузия будет копировать украинскую реформу"</a>
+                    <br>
+                    <span>30.01.2015 11:19</span>
+                </li>
+                                                            <li>
+                    <div><a href="http://www.rbc.ua/rus/interview/sport/igor-zhdanov-dlya-nas-absolyutnoe-tabu-uchastie-v-sorevnovaniyah-29012015134200"><img src="http://www.rbc.ua/static/img/p/i/pic_101_100x80.jpg" /></a></div>
+                    <a href="http://www.rbc.ua/rus/interview/sport/igor-zhdanov-dlya-nas-absolyutnoe-tabu-uchastie-v-sorevnovaniyah-29012015134200">Игорь Жданов: "Для нас абсолютное табу – участие в соревнованиях на территории Крыма"</a>
+                    <br>
+                    <span>29.01.2015 13:42</span>
+                </li>
+                        </ul>
+</div>
+<div class="readalso right">
+    <h3><a style="color:#42693d;" href="/rus/analytics">Аналитика</a></h3>
+    <ul>
+                                                                    <li>
+                    <div><a href="http://www.rbc.ua/rus/analytics/show/zakonotvorcheskoe-obespechenie-reform-i-evrointegratsii--30012015114200"><img src="http://www.rbc.ua/static/img/9/1/91584322_oc3xoqyb25y_100x80.jpg" /></a></div>
+                    <a href="http://www.rbc.ua/rus/analytics/show/zakonotvorcheskoe-obespechenie-reform-i-evrointegratsii--30012015114200">Законотворческое обеспечение реформ и евроинтеграции, или Есть ли у вас план, мистер Фикс?</a>
+                    <br>
+                    <span>30.01.2015 11:42</span>
+                </li>
+                                                            <li>
+                    <div><a href="http://www.rbc.ua/rus/analytics/show/gibridnaya-voyna-pochemu-ukrainskie-politiki-ne-gotovy-na-29012015093000"><img src="http://www.rbc.ua/static/img/r/i/rian_02202732_hr_ru_pic4_zoom_1000x1000_46145_100x80.jpg" /></a></div>
+                    <a href="http://www.rbc.ua/rus/analytics/show/gibridnaya-voyna-pochemu-ukrainskie-politiki-ne-gotovy-na-29012015093000">Гибридная война. Почему украинские политики не готовы на разрыв экономических отношений с РФ</a>
+                    <br>
+                    <span>29.01.2015 09:30</span>
+                </li>
+                                                        </ul>
+</div>
+<div class="clear_big"></div>
+<div class="clear_big"></div><div class="readalso">
+    <h3>Политика</h3>
+    <ul>
+                                                                        <li>
+                        <div><a href="http://www.rbc.ua/rus/news/politics/gosdep-ssha-osudil-obstrel-v-donetske-30-yanvarya-i-prizval-k-31012015013500"><img src="http://www.rbc.ua/static/img/_/v/_vatnik_raznoe_psaki_klichko_1196569________100x80.jpg" /></a></div>
+                        <a href="http://www.rbc.ua/rus/news/politics/gosdep-ssha-osudil-obstrel-v-donetske-30-yanvarya-i-prizval-k-31012015013500">Госдеп США осудил обстрел в Донецке 30 января и призвал к проведению расследования</a>
+                                                                        <br>
+                        <span>31.01.2015 01:35</span>
+                    </li>
+                                                                                <li>
+                        <a href="http://www.rbc.ua/rus/news/politics/rossiyskaya-delegatsiya-na-zasedanii-komiteta-pase-podderzhala-30012015211400">Российская делегация на заседании комитета ПАСЕ поддержала поправку по освобождению Савченко, - нардеп</a>
+                                                                        <br>
+                        <span>30.01.2015 21:14</span>
+                    </li>
+                                                                                <li>
+                        <a href="http://www.rbc.ua/rus/news/politics/v-gosdepe-ssha-utochnili-chto-kerri-priedet-v-kiev-5-fevralya-30012015203800">В Госдепе США уточнили, что Керри приедет в Киев 5 февраля</a>
+                                                                        <br>
+                        <span>30.01.2015 20:38</span>
+                    </li>
+                                                                                <li>
+                        <a href="http://www.rbc.ua/rus/news/politics/venetsianskaya-komissiya-posetit-ukrainu-3-4-fevralya-30012015203400">Венецианская комиссия посетит Украину 3-4 февраля</a>
+                                                                        <br>
+                        <span>30.01.2015 20:34</span>
+                    </li>
+                                        </ul>
+</div>
+<div class="readalso right">
+    <h3>Экономика</h3>
+    <ul>
+                                                                        <li>
+                        <div><a href="http://www.rbc.ua/rus/news/economic/v-minsotspolitiki-prognoziruyut-defitsit-byudzheta-gossluzhby-30012015141800"><img src="http://www.rbc.ua/static/img/r/o/rozenko_5_100x80.jpg" /></a></div>
+                        <a href="http://www.rbc.ua/rus/news/economic/v-minsotspolitiki-prognoziruyut-defitsit-byudzheta-gossluzhby-30012015141800">В Минсоцполитики прогнозируют дефицит бюджета Госслужбы занятости на уровне 1,2 млрд грн</a>
+                                                                        <br>
+                        <span>30.01.2015 14:18</span>
+                    </li>
+                                                                                <li>
+                        <a href="http://www.rbc.ua/rus/news/economic/s-p-ponizilo-reytingi-moskvy-do-musornogo-urovnya-29012015194100">S&P понизило рейтинги Москвы до "мусорного" уровня</a>
+                                                                        <br>
+                        <span>29.01.2015 19:49</span>
+                    </li>
+                                                                                <li>
+                        <a href="http://www.rbc.ua/rus/news/economic/ukraina-pri-podderzhke-ssha-v-2015-2016-gg-uzhestochit-tamozhennyy-29012015154700">Украина при поддержке США в 2015-2016 гг. ужесточит таможенный контроль в портах, - ГФС</a>
+                                                                        <br>
+                        <span>29.01.2015 15:47</span>
+                    </li>
+                                                                                <li>
+                        <a href="http://www.rbc.ua/rus/news/economic/lukashenko-dopustil-vyhod-belarusi-iz-evraziyskogo-soyuza-29012015131800">Лукашенко допустил выход Беларуси из Евразийского союза из-за торговой войны с РФ</a>
+                                                    <img src="/static/imgs/v.png" />
+                                                                        <br>
+                        <span>29.01.2015 13:18</span>
+                    </li>
+                                        </ul>
+</div>
+<div class="clear_big"></div>
+<div class="clear_big"></div>
+<div class="readalso">
+    <h3>Спорт</h3>
+    <ul>
+                                                                        <li>
+                        <div><a href="http://www.rbc.ua/rus/news/sport/-ukrainskie-atamany-vyigrali-match-wsb-v-kitae-30012015180200"><img src="http://www.rbc.ua/static/img/1/3/1396170938_ukraine_otamans_100x80.jpg" /></a></div>
+                        <a href="http://www.rbc.ua/rus/news/sport/-ukrainskie-atamany-vyigrali-match-wsb-v-kitae-30012015180200">"Украинские Атаманы" выиграли матч WSB в Китае</a>
+                                                                        <br>
+                        <span>30.01.2015 18:02</span>
+                    </li>
+                                                                                <li>
+                        <a href="http://www.rbc.ua/rus/news/sport/ukrainskaya-biatlonistka-merkushina-pobedila-na-chempionate-30012015144700">Украинская биатлонистка Меркушина победила на чемпионате Европы</a>
+                                                                        <br>
+                        <span>30.01.2015 14:47</span>
+                    </li>
+                                                                                <li>
+                        <a href="http://www.rbc.ua/rus/news/sport/vladimir-klichko-ne-nameren-vyhodit-na-ring-protiv-shennona-30012015120600">Владимир Кличко не намерен выходить на ринг против Шеннона Бриггса</a>
+                                                                        <br>
+                        <span>30.01.2015 12:06</span>
+                    </li>
+                                                                                <li>
+                        <a href="http://www.rbc.ua/rus/news/sport/yozef-blatter-ofitsialno-podal-zayavku-na-vybory-prezidenta-30012015104000">Йозеф Блаттер официально подал заявку на выборы президента ФИФА</a>
+                                                                        <br>
+                        <span>30.01.2015 10:40</span>
+                    </li>
+                                        </ul>
+</div>
+<div class="readalso right">
+    <h3>Происшествия</h3>
+    <ul>
+                                                                        <li>
+                        <div><a href="http://www.rbc.ua/rus/news/accidents/zaderzhannye-zhurnalistki-lifenews-prinuditelno-vyvezeny-s-31012015000500"><img src="http://www.rbc.ua/static/img/l/u/lubkivski_markian_660x370_1_100x80.jpg" /></a></div>
+                        <a href="http://www.rbc.ua/rus/news/accidents/zaderzhannye-zhurnalistki-lifenews-prinuditelno-vyvezeny-s-31012015000500">Задержанные журналистки LifeNews принудительно вывезены с территории Украины, - СБУ</a>
+                                                                        <br>
+                        <span>31.01.2015 00:05</span>
+                    </li>
+                                                                                <li>
+                        <a href="http://www.rbc.ua/rus/news/accidents/boytsy-aydara-razblokirovali-vozduhoflotskiy-prospekt-30012015135600">Бойцы "Айдара" разблокировали Воздухофлотский проспект в Киеве и пообещали собраться 2 февраля</a>
+                                                                        <br>
+                        <span>30.01.2015 13:56</span>
+                    </li>
+                                                                                <li>
+                        <a href="http://www.rbc.ua/rus/news/accidents/v-dome-arestovannogo-lidera-krymskotatarskogo-medzhlisa-30012015103400">В доме арестованного лидера крымскотатарского меджлиса Ахтема Чийгоза идет обыск</a>
+                                                                        <br>
+                        <span>30.01.2015 10:34</span>
+                    </li>
+                                                                                <li>
+                        <a href="http://www.rbc.ua/rus/news/accidents/na-granitse-s-krymom-zaderzhan-korrektirovshchik-boevikov-30012015101100">На границе с Крымом задержан корректировщик боевиков</a>
+                                                                        <br>
+                        <span>30.01.2015 10:11</span>
+                    </li>
+                                        </ul>
+</div>
+<div class="clear_big"></div>
+<div class="clear_big"></div>
+<div class="clear_big"></div>
+<div class="clear_big"></div>                </div>
+                                    <div class="col-right">
+                        <!--  AdRiver code START. Type:AjaxJS Site: RBC SZ: rbc_business PZ: 1 BN: 4 -->
+<div id="adriver_banner_144990072"></div>
+<script type="text/javascript">
+    new adriver("adriver_banner_144990072", {sid:186717, keyword:'rus;mainpage', bt:52, sz:'rbc_business', bn:4, pz:1});
+</script>
+<!--  AdRiver code END  -->                                                <div class="right-currency">
+    <div id="right-currency-header-holder"></div>
+    <div class="rateContainer">
+    <table width=100% class="rate">
+        <TR>
+            <TD width=50% nowrap="nowrap"><b><a href="http://www.rbc.ua/rus/currency">Курс валют</a></b></TD>
+            <td width=10%><b>30/01</b></td>
+            <TD align=right width=20%><B>Спрос</B></TD>
+            <TD align=right width=20%><B>Предл.</B></TD>
+        </TR>
+        <TR>
+            <TD><div class="indexes red"><i></i><span><a href="/rus/currency/USD" >Курс доллара</a></span></div></TD>
+            <TD>30/01</TD>
+            <TD align=right>16.252</TD>
+            <TD align=right>16.578</TD>
+        </TR>
+        <TR>
+            <TD><div class="indexes red"><i></i><span><a href="/rus/currency/EUR" >Курс евро</a></span></div></TD>
+            <TD>30/01</TD>
+            <TD align=right>18.27</TD>
+            <TD align=right>18.882</TD>
+        </TR>
+        <TR>
+            <TD><div class="indexes green"><i></i><span><a href="/rus/currency/RUB" >Курс рубля</a></span></div></TD>
+            <TD>30/01</TD>
+            <TD align=right>2.329</TD>
+            <TD align=right>2.472</TD>
+        </TR>
+        
+                <TR>
+        <TD><div class="indexes green"><i></i><span><a title="EUR/USD" href="http://www.rbc.ua/rus/forex" >EUR/USD</a></span></div></TD>
+        <TD>22:59</TD>
+        <TD align=right>1.13025</center></TD>
+        <TD align=right class="green">1.13075</TD>
+    </TR>
+    
+                </table>
+</div>
+
+    <p class="right hidemobo"><a href="/rus/converter">Конвертер валют</a></p>
+    <div id="right-currency-btn-holder" class="left">
+    
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="clear_big"></div>
+<!--  AdRiver code START. Type:AjaxJS Site: RBC SZ: rbc_business PZ: 2 BN: 1 -->
+<div id="adriver_banner_322339809"></div>
+<script type="text/javascript">
+var custom = [];
+var width = screen.width, height = screen.height;
+var std = {width:110, height:111},i;for(i in std){try{custom[std[i]]=eval(i)}catch(e){}}
+    new adriver("adriver_banner_322339809", {sid:186717, keyword:'rus;mainpage', bt:52, sz:'rbc_business', bn:1, pz:2, custom: custom});
+</script>
+<!--  AdRiver code END  -->
+    
+<div class="clear_small"></div>    
+<style type="text/css">
+    .utro-right {background:#f8f8f8;border:1px solid #e9e9e9;padding:10px;}
+    .utro-head {font-weight:bold;text-transform: uppercase;font-family:'Open Sans',sans-serif;color:#42693d;margin-bottom:15px;font-size:13px;}
+    .utro-head a {color:#42693d;}
+    .utro-head a:hover {color:#000;}
+    .utro-item {margin:10px 0;}
+    .utro-item div.bull {display: none;}
+    .utro-item div.utro-img {float:left;width:60px;margin-right:8px;}
+    .utro-item div.utro-img img {width:60px;}
+    .utro-item p {display:block;margin:0;padding:0;padding-right:5px;}
+    .utro-item p a {color:#000;font-size:14px;font-family:arial;text-decoration:none;}
+    .utro-item p a:hover {color:#335e2e;}
+</style>
+<div style="width:300px;">
+    <div id="utro_right"></div>
+</div>
+<script type="text/javascript">
+var aGadDate = new Date();
+document.write('<scr'+'ipt type="text/javascript" '+'src="http://www.rbc.ua/static/informer/utro-right-test.js?t='+aGadDate.getYear()+aGadDate.getMonth()+aGadDate.getDay()+aGadDate.getHours()+aGadDate.getMinutes() + '" charset="utf-8" ></scr'+'ipt>');
+</script>
+<div class="clear_big"></div>
+
+    <div class="rblock">
+        <h3>Исследования</h3>
+        <ul>
+                                            <li><a href="http://marketing.rbc.ua/publication/07.12.2012/5371" target="_blank">Бизнес-план открытия ресторана</a></li>
+                                            <li><a href="http://marketing.rbc.ua/publication/27.10.2014/7076" target="_blank">Рынок частной медицины Украины</a></li>
+                                            <li><a href="http://marketing.rbc.ua/publication/01.06.2012/5052" target="_blank">Теплоэнергетика России 2011-2016 гг.</a></li>
+                                    </ul>
+    </div>
+    <div class="clear_small"></div>
+
+<!--  AdRiver code START. Type:AjaxJS Site: RBC SZ: rbc_business PZ: 2 BN: 12 -->
+<div id="adriver_banner_2043093109"></div>
+
+<script type="text/javascript">
+new adriver("adriver_banner_2043093109", {sid:186717, bt:52, sz:'rbc_business', bn:12, pz:2});
+</script>
+
+<!--  AdRiver code END  -->
+
+<!--  AdRiver code START. Type:poster Site: RBC SZ: rbc_business PZ: 3 BN: 2 -->
+<script language="javascript" type="text/javascript"><!--
+function adriverPoster(L){
+    if(typeof(ar_cn)=="undefined")ar_cn=1;
+    var W=window,D=document,E=D.documentElement,T=0,N=ar_cn,P=0,C=D.compatMode=="CSS1Compat",
+        X='<scr'+'ipt type="text/javascript">var ar_bnum='+N+';setTimeout(function(e){if(!self.CgiHref){document.close();e=parent.document.getElementById("ar_container_"+ar_bnum);e.parentNode.removeChild(e)}},3000);',
+        Y='<\/sc'+'ript><sc'+'ript type="text/javascript" src="'+L+'&tail256='+escape(D.referrer||'unknown')+'&rnd='+Math.round(Math.random()*999999999)+'"><\/sc'+'ript>';
+    function G(){if(T++<100){var o=D.getElementById('ar_container_'+N);if(o){try{var d=o.contentDocument||(W.ActiveXObject&&W.frames['ar_container_'+N].document);if(d){d.write(X+Y)}else setTimeout(arguments.callee,100)}catch(e){try{o.src = "javascript:{document.write('"+X+'document.domain="'+D.domain+'";'+Y+"')}";return}catch(E){}}}else setTimeout(arguments.callee,100)}}
+    function A(e,t,f){if(e.addEventListener)e.addEventListener(t,f,false);else if(e.attachEvent)e.attachEvent('on'+t,f)}
+    function R(e,t,f){if(e.removeEventListener)e.removeEventListener(t,f,false);else if(e.detachEvent)e.detachEvent('on'+t,f)}
+    function S(){var ch=self.innerHeight||C&&E.clientHeight||D.body.clientHeight,st=self.pageYOffset||C&&E.scrollTop||D.body.scrollTop;if(P>=st&&st+ch>=P){R(W,'scroll',S);G()}}
+    A(W,'load',function(){var o=D.getElementById('ad_ph_'+N);if(o){while(o.offsetParent){P+=o.offsetTop;o=o.offsetParent}A(W,'scroll',S);S()}});
+    D.write('<div style="position:absolute;visibility:hidden;height:0px;"><iframe id="ar_container_'+N+'" width=1 height=1 marginwidth=0 marginheight=0 scrolling=no frameborder=0><\/iframe><\/div><div id="ad_ph_'+N+'"><\/div>');
+    ar_cn++;
+}
+    adriverPoster("http://ad.adriver.ru/cgi-bin/erle.cgi?sid=186717&keyword=rus;mainpage&sz=rbc_business&bn=2&target=blank&bt=49&pz=3");
+//--></script>
+<!--  AdRiver code END  -->
+
+<div class="clear_small"></div><div class="rblock rdict">
+    <h3>Справочники</h3>
+    <ul>
+        <li><a href="http://www.rbc.ua/rus/nbu" >Курс валют в Украине</a></li>
+        <li><a href="http://www.rbc.ua/rus/currency/USD" >Курс доллара</a></li>
+        <li><a href="http://www.rbc.ua/rus/currency/EUR" >Курс евро</a></li>
+        <li><a href="http://www.rbc.ua/rus/currency/RUB" >Курс российского рубля</a></li>
+        <li><a href="http://www.rbc.ua/rus/deposit" >Депозиты</a></li>
+        <li><a href="http://www.rbc.ua/rus/forex" >Котировки валют</a></li>
+        <li><a href="http://www.rbc.ua/rus/oil" >Нефть</a></li>
+        <li><a href="http://www.rbc.ua/rus/gold" >Золото</a></li>
+        <li style="margin-bottom: 10px;"><a href="http://www.rbc.ua/rus/indices" >Мировые индексы</a></li>
+        <li><a href="http://www.rbc.ua/rus/digests">Обзор СМИ</a></li>
+        <li><a target="_blank" href="http://company.rbc.ua">Новости компаний</a></li>
+        <li><a href="http://www.rbc.ua/rus/top/funs">Безумный мир</a></li>
+    </ul>
+</div>
+<div class="clear_big"></div>
+    <div class="rblock grey">
+        <h3>Опрос на сайте РБК-Украина</h3>
+        <div class="vote-right">
+            <form style="padding:0px;margin:0px;" method="get" action="http://www.rbc.ua/rus/vote/show" enctype="application/x-www-form-urlencoded">
+                <input type="hidden" name="vote" id="vote" value="2716" />
+                <p><b>Поддерживаете ли Вы введение военного положения в Украине?</b></p>
+                <hr />
+                                                            <input  type="radio" value="14806" name="answer" id="answer_14806" style="background-color:#F4F8ED;" />&nbsp; 1. Да.<br>
+                                            <input  type="radio" value="14807" name="answer" id="answer_14807" style="background-color:#F4F8ED;" />&nbsp; 2. Нет.<br>
+                                            <input  type="radio" value="14808" name="answer" id="answer_14808" style="background-color:#F4F8ED;" />&nbsp; 3. Мне все равно.<br>
+                                                    <div class="clear_big"></div>
+                <div class="left">
+                    <input type=Submit name="^" value="Проголосовать">
+                </div>
+                <div class="right" style="padding-top:10px;">
+                    <a href="http://www.rbc.ua/rus/vote/archive">Архив опросов</a>
+                </div>
+                <div class="clear"></div>
+            </form>
+        </div>
+    </div>
+                                                <div class="clear_big"></div>
+                        <div class="rblock rdict">
+                            <h3>БЮРО</h3>
+                            <ul>
+                                <li>
+                                    <a href="http://vibori2014.rbc.ua/">Выборы 2014</a>&nbsp;&nbsp;&nbsp;
+                                    <a href="http://www.rbc.ua/perevod">Перевод денег</a>&nbsp;&nbsp;&nbsp;
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clear_big"></div>
+                    </div>
+                                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="mainarea2"></div>
+        <div class="clear_big"></div>
+            </div>
+    <div class="wrapper footer">
+    <div class="container">
+        <div class="left">
+            <p class="hidemobo">RBC UKRAINE в интернете:</p>
+            <a href="http://www.rbc.ua"><img src="http://www.rbc.ua/static/imgs/respo/logobottom.gif" /></a>
+        </div>
+        <div class="right">
+            <div class="projects hidemobo" align="right">
+                <ul>
+                    <li><a href="http://www.utro.ua"><img src="http://www.rbc.ua/static/imgs/respo/ico-utro.gif" /> utro.ua</a></li>
+                    <li><a href="http://www.pusk.ua"><img src="http://www.rbc.ua/static/imgs/respo/ico-pusk.gif" /> pusk.ua</a></li>
+                    <li><a href="http://marketing.rbc.ua"><img src="http://www.rbc.ua/static/imgs/respo/ico-research.gif" /> РБК-Исследования</a></li>
+                    <li><a href="http://sales.rbc.ua/"><img src="http://www.rbc.ua/static/imgs/respo/ico-sale.gif" /> Реклама</a></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <p class="hidemobo">
+                <span class="hidemobo">&copy; 2005-2015 РБК-Украина &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <a href="http://www.rbc.ua/rus/vote/archive">ОПРОСЫ</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="http://www.rbc.ua/rus/about.shtml">О КОМПАНИИ</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="http://www.rbc.ua/rus/contacts.shtml">КОНТАКТЫ</a><span class="hidemobo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </p>
+            <div style="margin:5px 30px 0 0;" align="right">
+                <!--LiveInternet logo--><a href="//www.liveinternet.ru/click;rbcua"
+                target="_blank"><img src="//counter.yadro.ru/logo;rbcua?44.13"
+                title="LiveInternet"
+                alt="" border="0" width="31" height="31"/></a><!--/LiveInternet-->
+
+
+                <!-- Yandex.Metrika informer -->
+                <a href="http://metrika.yandex.ru/stat/?id=11963596&amp;from=informer"
+                target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/11963596/3_0_5A875CFF_3A673CFF_1_pageviews"
+                style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" /></a>
+                <!-- /Yandex.Metrika informer -->
+
+                <!-- Yandex.Metrika counter -->
+                <div style="display:none;"><script type="text/javascript">
+                (function(w, c) {
+                    (w[c] = w[c] || []).push(function() {
+                        try {
+                            w.yaCounter11963596 = new Ya.Metrika({id:11963596, enableAll: true, webvisor:true});
+                        }
+                        catch(e) { }
+                    });
+                })(window, "yandex_metrika_callbacks");
+                </script></div>
+                <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer"></script>
+                <noscript><div><img src="//mc.yandex.ru/watch/11963596" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                <!-- /Yandex.Metrika counter -->
+            </div>
+        </div>
+        <div class="clear"></div>
+        <br /><br />
+            </div>
+</div>
+
+
+                
+    <!-- UA -->    <!-- -- -->    
+            <!--  AdRiver code START. Type:counter(zeropixel) Site: RBC SZ: rbc_business PZ: 3 BN: 1 -->
+        <script type="text/javascript">
+        var RndNum4NoCash = Math.round(Math.random() * 1000000000);
+        var ar_Tail='unknown'; if (document.referrer) ar_Tail = escape(document.referrer);
+        document.write('<img src="' + ('https:' == document.location.protocol ? 'https:' : 'http:') + '//ad.adriver.ru/cgi-bin/rle.cgi?' + 'sid=186717&sz=rbc_business&bn=1&bt=21&pz=3&rnd=' + RndNum4NoCash + '&tail256=' + ar_Tail + '" border=0 width=1 height=1>')
+        </script>
+        <noscript><img src="//ad.adriver.ru/cgi-bin/rle.cgi?sid=186717&sz=rbc_business&bn=1&bt=21&pz=3&rnd=1498854186" border=0 width=1 height=1></noscript>
+        <!--  AdRiver code END  -->
+        
+        <!--  AdRiver code START. Type:counter(zeropixel) Site: RBC SZ: rbc_business PZ: 3 BN: 2 -->
+        <script type="text/javascript">
+        var RndNum4NoCash = Math.round(Math.random() * 1000000000);
+        var ar_Tail='unknown'; if (document.referrer) ar_Tail = escape(document.referrer);
+        document.write('<img src="' + ('https:' == document.location.protocol ? 'https:' : 'http:') + '//ad.adriver.ru/cgi-bin/rle.cgi?' + 'sid=186717&sz=rbc_business&bn=2&bt=21&pz=3&rnd=' + RndNum4NoCash + '&tail256=' + ar_Tail + '" border=0 width=1 height=1>')
+        </script>
+        <noscript><img src="//ad.adriver.ru/cgi-bin/rle.cgi?sid=186717&sz=rbc_business&bn=2&bt=21&pz=3&rnd=1893008639" border=0 width=1 height=1></noscript>
+        <!--  AdRiver code END  -->
+        
+    <script type="text/javascript">
+    var ttsmi2_data = { siteid: 41230, count: 'site' };
+    (function() {
+      var sc = document.createElement('script'); sc.type = 'text/javascript'; sc.async = true;
+      sc.src = '//target.smi2.net/client/target.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sc, s);
+    }());
+    </script>
+</body>
+</html>

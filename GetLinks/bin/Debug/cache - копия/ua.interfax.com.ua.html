@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html xmlns:fb="http://ogp.me/ns/fb#">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+    <meta charset="UTF-8">
+    <meta http-equiv="content-language" content="ua" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQYPWVJWGwIIVFJQAgM="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),u=c.length,f=i(a,o,r),d=0;u>d;d++)c[d].apply(f,n);return f}function a(t,e){u[t]=s(t).concat(e)}function s(t){return u[t]||[]}function c(){return n(e)}var u={};return{on:a,emit:e,create:c,listeners:s,_events:u}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(u){try{r("ierr",[u,(new Date).getTime(),!0])}catch(f){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(4),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e,NREUM.noticeError=n;try{throw new Error}catch(u){"stack"in u&&(t(5),t(3),"addEventListener"in window&&t(1),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(2),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:4,2:7,3:5,4:19,5:6,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:19,2:20,ee:"QJf3ax",gos:"7eSDFh"}],5:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:20,2:19,ee:"QJf3ax"}],6:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:20,2:19,ee:"QJf3ax"}],7:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),u=s(a),f=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new f(t);try{i.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=f.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:4,2:20,ee:"QJf3ax"}],8:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,u="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,f=e(u);if(f&&(r.rxSize=f),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,u=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var u=e(o);u&&(r.txSize=u)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var f=0;c>f;f++)n.addEventListener(s[f],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:9,3:7,4:4,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],9:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.licenseKey&&t.applicationID&&u&&u.body){s(h,function(e,n){e in t||(t[e]=n)}),l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=u.createElement("script");e.src=l.proto+t.agent,u.body.appendChild(e)}}function r(){"complete"===u.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,u=c.document,f="addEventListener",d="attachEvent",p=(""+location).split("?")[0],h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-515.min.js"},l=e.exports={offset:i(),origin:p,features:{}};u[f]?(u[f]("DOMContentLoaded",o,!1),c[f]("load",n,!1)):(u[d]("onreadystatechange",r),c[d]("onload",n)),a("mark",["firstbyte",i()])},{1:18,handle:"D5DuLP"}],18:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],19:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],20:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,u;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){f([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return u=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,u],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,u(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,u="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,u?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){f([o,e,n,r])}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){f([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function f(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:19,ee:"QJf3ax"}]},{},["G9z0Bl",3,8]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","queueTime":0,"licenseKey":"72e0998a35","agent":"js-agent.newrelic.com/nr-515.min.js","transactionName":"YFZTN0BTXRcCABdaVlkcdxZcUUcNDA1MRk5EVFg8VFtfATw8FkBLaF9eAFNebBMUFDxFUVhARRBtW10QBhEFUkFoUF4ObUdSOwITE2xPXlZGEAhaXAkGEwJUXA==","applicationID":"1803252","errorBeacon":"bam.nr-data.net","applicationTime":371}</script>
+
+    <title>Інтерфакс-Україна</title>
+    <meta name="description" content="Інформація про останні події в політиці України, ключові українські економічні новини та основні події в країнах СНД і світу.">
+    <meta name="keywords" content="новости, новости украины, новости дня, новости украина, последние новости, последние новости украины, новости украины и мира" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+    <link rel="canonical" href="http://ua.interfax.com.ua/" />
+    <link rel="alternate" type="application/rss+xml" href="/news/last.rss" />
+
+
+    <meta property="og:title" content="Інтерфакс-Україна"/>
+    <meta property="fb:description" content="Інформація про останні події в політиці України, ключові українські економічні новини та основні події в країнах СНД і світу." />
+    <meta property="og:url" content="http://ua.interfax.com.ua/"/>
+    <meta property="og:image"
+        content="http://static.interfax.com.ua/images/interfax_ukraine_logo_ukr.png"/>
+    <meta property="og:site_name" content="Інтерфакс-Україна" />
+    <meta property="fb:app_id" content="392969614091591" />
+    
+
+    
+    
+    <link rel="stylesheet" href="http://static.interfax.com.ua/css/all.css?f3" media="all">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="http://static.interfax.com.ua/css/ie7.css" media="all">
+    <![endif]-->
+    
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <!--[if lte IE 8]>
+    <script src="http://static.interfax.com.ua/js/html5shim.js"></script>
+    <![endif]-->
+    
+
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4918283-10']);
+    _gaq.push(['_setDomainName', '.interfax.com.ua']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+    <!-- (C)2000-2011 Gemius SA - gemiusAudience / interfax.com.ua / Glavnaja stranitsa sajta -->
+<script type="text/javascript">
+    <!--//--><![CDATA[//><!--
+    var pp_gemius_identifier = new String('AqWbwirUyMuH40bFX.tVbqScj6LuyYNkCAi7byrzjtj.k7');
+    //--><!]]>
+</script>
+<script type="text/javascript" src="http://static.interfax.com.ua/js/xgemius.js"></script>
+<!-- End gemius -->
+	<script type="text/javascript" src="http://ad.interfax.com.ua/js/adriver.core.2.js"></script>
+</head>
+<body>
+    
+    <script>document.write('<iframe src="http://informers.ukr.net/partner/banner.php?sid=154852&bn=1&pz=1&rnd=' + Math.round(Math.random() * 1000000000) + '&sizewidth='+screen.width+'&sizeheight='+screen.height+'&colors='+screen.colorDepth+'&referrer='+encodeURIComponent(window.document.referrer)+'" width="100%" height="90" frameborder="0" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>');</script>
+
+    
+    <div class="page grid grid-padding-10">
+        <div class="col-79">
+            <div class="grid content">
+                <div class="col-23">
+                    
+
+    <div class="grid top-block">
+        <div class="col-12">
+
+            <div class="article article-biggest">
+                
+                <div class="article-image-wrapper">
+                    <a href="/news/general/247853.html">
+                        <img class="article-image" src="http://deprecated.interfax.com.ua/img/1507_173639.jpg" alt=""/>
+                    </a>
+                </div>
+                <h2 class="article-link-wrapper">
+                    <a class="article-link"
+                       href="/news/general/247853.html">
+                        Обстріл Донецька бойовиками спрямовано на зрив процесу врегулювання на Донбасі - РНБО
+                    </a>
+                </h2>
+
+            </div>
+
+            <div class="separator"></div>
+
+            
+                <div class="article article-subtop grid">
+
+                    <div class="col-27 article-image-wrapper">
+                        <a href="/news/political/247846.html">
+                            <img class="article-image" src="http://deprecated.interfax.com.ua/img/2907_135054.jpg" alt=""/>
+                        </a>
+                    </div>
+                    <div class="col-57">
+                        <h2 class="article-link-wrapper">
+                            <a class="article-link"
+                               href="/news/political/247846.html">
+                                Порошенко і Меркель домовилися зустрітися в Мюнхені
+                            </a>
+                            <span class="article-time">17:29</span>
+                        </h2>
+                    </div>
+
+                </div>
+            
+                <div class="article article-subtop grid">
+
+                    <div class="col-27 article-image-wrapper">
+                        <a href="/news/political/247839.html">
+                            <img class="article-image" src="http://deprecated.interfax.com.ua/img/0307_155905.jpg" alt=""/>
+                        </a>
+                    </div>
+                    <div class="col-57">
+                        <h2 class="article-link-wrapper">
+                            <a class="article-link"
+                               href="/news/political/247839.html">
+                                В Україні заснована медаль "Захиснику Вітчизни" - указ
+                            </a>
+                            <span class="article-time">17:12</span>
+                        </h2>
+                    </div>
+
+                </div>
+            
+                <div class="article article-subtop grid">
+
+                    <div class="col-27 article-image-wrapper">
+                        <a href="/news/political/247818.html">
+                            <img class="article-image" src="http://deprecated.interfax.com.ua/img/0207_155136.jpg" alt=""/>
+                        </a>
+                    </div>
+                    <div class="col-57">
+                        <h2 class="article-link-wrapper">
+                            <a class="article-link"
+                               href="/news/political/247818.html">
+                                Члени тристоронньої контактної групи готові зустрічатися в Мінську лише з підписантами угод - спікер МЗС України
+                            </a>
+                            <span class="article-time">15:58</span>
+                        </h2>
+                    </div>
+
+                </div>
+            
+
+        </div>
+        <div class="col-12">
+
+            <div class="section-wrapper articles-list">
+                <h6 class="section-title">ОСТАННІ НОВИНИ</h6>
+                
+                    <div class="article">
+                        <h2 class="article-link-wrapper">
+                            <a class="article-link"
+                               href="/news/general/247847.html">
+                                СБУ повідомляє про затримання бойовика, який готував теракти в Запоріжжі
+                            </a>
+                            <span class="article-time">17:30</span>
+                        </h2>
+                    </div>
+                
+                    <div class="article">
+                        <h2 class="article-link-wrapper">
+                            <a class="article-link"
+                               href="/news/general/247843.html">
+                                У Вуглегірську другий день точаться бої - прес-центр АТО
+                            </a>
+                            <span class="article-time">17:22</span>
+                        </h2>
+                    </div>
+                
+                    <div class="article">
+                        <h2 class="article-link-wrapper bold">
+                            <a class="article-link"
+                               href="/news/general/247842.html">
+                                Запорізьку область переведено в режим підвищеної готовності до реагування на НС
+                            </a>
+                            <span class="article-time">17:18</span>
+                        </h2>
+                    </div>
+                
+                    <div class="article">
+                        <h2 class="article-link-wrapper">
+                            <a class="article-link"
+                               href="/news/general/247833.html">
+                                У Дебальцевому від обстрілу бойовиків загинуло семеро мирних жителів
+                            </a>
+                            <span class="article-time">16:47</span>
+                        </h2>
+                    </div>
+                
+                    <div class="article">
+                        <h2 class="article-link-wrapper">
+                            <a class="article-link"
+                               href="/news/political/247826.html">
+                                Єдиним підрядником робіт із будівництва моста через Керченську протоку визначено "Стройгазмонтаж"
+                            </a>
+                            <span class="article-time">16:16</span>
+                        </h2>
+                    </div>
+                
+                    <div class="article">
+                        <h2 class="article-link-wrapper bold">
+                            <a class="article-link"
+                               href="/news/political/247824.html">
+                                У МЗС прогнозують початок переговорів з ЄС щодо перегляду квот у рамках ЗВТ на осінь
+                            </a>
+                            <span class="article-time">16:14</span>
+                        </h2>
+                    </div>
+                
+                    <div class="article">
+                        <h2 class="article-link-wrapper bold">
+                            <a class="article-link"
+                               href="/news/general/247821.html">
+                                Бойовики обстріляли жителів Донецька, які прийшли по гуманітарну допомогу
+                            </a>
+                            <span class="article-time">16:06</span>
+                        </h2>
+                    </div>
+                
+                    <div class="article">
+                        <h2 class="article-link-wrapper bold">
+                            <a class="article-link"
+                               href="/news/political/247817.html">
+                                Порошенко затвердив додаткові заходи щодо забезпечення проведення часткової мобілізації
+                            </a>
+                            <span class="article-time">15:52</span>
+                        </h2>
+                    </div>
+                
+                    <div class="article">
+                        <h2 class="article-link-wrapper bold">
+                            <a class="article-link"
+                               href="/news/political/247809.html">
+                                Президент України підписав закон про "будамністію" в 2015 р.
+                            </a>
+                            <span class="article-time">15:36</span>
+                        </h2>
+                    </div>
+                
+                    <div class="article last">
+                        <h2 class="article-link-wrapper bold">
+                            <a class="article-link"
+                               href="/news/political/247807.html">
+                                Президент підписав закон, що зобов'язує підзвітні Нацкомфінпослуг компанії оприлюднити інформацію про свою діяльність
+                            </a>
+                            <span class="article-time">15:34</span>
+                        </h2>
+                    </div>
+                
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    
+        <section class="section-wrapper">
+
+            <h3 class="section-title">
+                <a href="/news/general.html">
+                    ПОДІЇ
+                </a>
+            </h3>
+
+            <div class="grid">
+
+                <div class="col-58 vertical-border">
+                    
+                        <div class="grid article article-section-hot">
+
+                            <div class="col-14 article-image-wrapper">
+                                <a href="/news/general/247733.html">
+                                    <img class="article-image" src="http://deprecated.interfax.com.ua/img/1410_115459.jpg" alt="" />
+                                </a>
+                            </div>
+
+                            <div class="col-34">
+                                <h2 class="article-link-wrapper">
+                                    <a class="article-link"
+                                       href="/news/general/247733.html">
+                                        Рада ЄС поклала на Росію відповідальність за ескалацію ситуації на Донбасі
+                                    </a>
+                                </h2>
+                            </div>
+
+                        </div>
+                    
+                        <div class="grid article article-section-hot">
+
+                            <div class="col-14 article-image-wrapper">
+                                <a href="/news/general/247723.html">
+                                    <img class="article-image" src="http://deprecated.interfax.com.ua/img/0212_115038.jpg" alt="" />
+                                </a>
+                            </div>
+
+                            <div class="col-34">
+                                <h2 class="article-link-wrapper">
+                                    <a class="article-link"
+                                       href="/news/general/247723.html">
+                                        Бої за Вуглегірськ тривають, Дебальцеве утримують українські сили
+                                    </a>
+                                </h2>
+                            </div>
+
+                        </div>
+                    
+                        <div class="grid article article-section-hot last">
+
+                            <div class="col-14 article-image-wrapper">
+                                <a href="/news/general/247659.html">
+                                    <img class="article-image" src="http://deprecated.interfax.com.ua/img/2907_113904.jpg" alt="" />
+                                </a>
+                            </div>
+
+                            <div class="col-34">
+                                <h2 class="article-link-wrapper">
+                                    <a class="article-link"
+                                       href="/news/general/247659.html">
+                                        Атаку на сили АТО в Вуглегірську відбито, до міста зайшов батальйон Нацгвардії - "Азов"
+                                    </a>
+                                </h2>
+                            </div>
+
+                        </div>
+                    
+                </div>
+
+                <div class="col-38 articles-list">
+                    
+                        <div class="article">
+                            <h2 class="article-link-wrapper">
+                                <a class="article-link"
+                                   href="/news/general/247788.html">
+                                    В Україні у вихідні очікується погіршення погодних умов - Укргідрометцентр
+                                </a>
+                            </h2>
+                        </div>
+                    
+                        <div class="article">
+                            <h2 class="article-link-wrapper">
+                                <a class="article-link"
+                                   href="/news/general/247780.html">
+                                    СБУ має намір видворити з країни затриманих у Києві журналістів LifeNews
+                                </a>
+                            </h2>
+                        </div>
+                    
+                        <div class="article">
+                            <h2 class="article-link-wrapper">
+                                <a class="article-link"
+                                   href="/news/general/247775.html">
+                                    Бої тривають поблизу Вуглегірська - прес-центр АТО
+                                </a>
+                            </h2>
+                        </div>
+                    
+                        <div class="article">
+                            <h2 class="article-link-wrapper">
+                                <a class="article-link"
+                                   href="/news/general/247772.html">
+                                    Акція бійців "Айдару" продовжиться в понеділок - Мельничук
+                                </a>
+                            </h2>
+                        </div>
+                    
+                        <div class="article last">
+                            <h2 class="article-link-wrapper">
+                                <a class="article-link"
+                                   href="/news/general/247766.html">
+                                    У лікарнях досі перебувають 78 потерпілих від обстрілу Маріуполя, четверо людей у важкому стані - "Оборона Маріуполя"
+                                </a>
+                            </h2>
+                        </div>
+                    
+                </div>
+
+            </div>
+
+        </section>
+    
+        <section class="section-wrapper">
+
+            <h3 class="section-title">
+                <a href="/news/political.html">
+                    ПОЛІТИКА
+                </a>
+            </h3>
+
+            <div class="grid">
+
+                <div class="col-58 vertical-border">
+                    
+                        <div class="grid article article-section-hot">
+
+                            <div class="col-14 article-image-wrapper">
+                                <a href="/news/political/247804.html">
+                                    <img class="article-image" src="http://deprecated.interfax.com.ua/img/2509_113543.jpg" alt="" />
+                                </a>
+                            </div>
+
+                            <div class="col-34">
+                                <h2 class="article-link-wrapper">
+                                    <a class="article-link"
+                                       href="/news/political/247804.html">
+                                        Порошенко підписав зміни до законодавства щодо невідворотності покарання осіб на тимчасово окупованій території
+                                    </a>
+                                </h2>
+                            </div>
+
+                        </div>
+                    
+                        <div class="grid article article-section-hot">
+
+                            <div class="col-14 article-image-wrapper">
+                                <a href="/news/political/247802.html">
+                                    <img class="article-image" src="http://deprecated.interfax.com.ua/img/1908_183650.jpg" alt="" />
+                                </a>
+                            </div>
+
+                            <div class="col-34">
+                                <h2 class="article-link-wrapper">
+                                    <a class="article-link"
+                                       href="/news/political/247802.html">
+                                        Питання про введення миротворців в Україну поки що не розглядали - МЗС
+                                    </a>
+                                </h2>
+                            </div>
+
+                        </div>
+                    
+                        <div class="grid article article-section-hot last">
+
+                            <div class="col-14 article-image-wrapper">
+                                <a href="/news/political/247799.html">
+                                    <img class="article-image" src="http://deprecated.interfax.com.ua/img/0407_173525.jpg" alt="" />
+                                </a>
+                            </div>
+
+                            <div class="col-34">
+                                <h2 class="article-link-wrapper">
+                                    <a class="article-link"
+                                       href="/news/political/247799.html">
+                                        Порошенко підписав закон про держкомпенсації на будівництво тваринницьких комплексів без прив'язки до поголів'я
+                                    </a>
+                                </h2>
+                            </div>
+
+                        </div>
+                    
+                </div>
+
+                <div class="col-38 articles-list">
+                    
+                        <div class="article">
+                            <h2 class="article-link-wrapper">
+                                <a class="article-link"
+                                   href="/news/political/247791.html">
+                                    Нацбанк опустив офіційний курсу гривні до нового мінімуму майже 16,16 грн/$1
+                                </a>
+                            </h2>
+                        </div>
+                    
+                        <div class="article">
+                            <h2 class="article-link-wrapper">
+                                <a class="article-link"
+                                   href="/news/political/247782.html">
+                                    У Кабміні спростували інформацію про позачергове засідання в п'ятницю
+                                </a>
+                            </h2>
+                        </div>
+                    
+                        <div class="article">
+                            <h2 class="article-link-wrapper">
+                                <a class="article-link"
+                                   href="/news/political/247779.html">
+                                    У МЗС України заявляють про попередню домовленість провести консультації в Мінську - українська сторона готова до зустрічі
+                                </a>
+                            </h2>
+                        </div>
+                    
+                        <div class="article">
+                            <h2 class="article-link-wrapper">
+                                <a class="article-link"
+                                   href="/news/political/247776.html">
+                                    Відповіддю на арешт заступника голови меджлісу в Криму буде звернення до ЄСПЛ - омбудсмен Лутковська
+                                </a>
+                            </h2>
+                        </div>
+                    
+                        <div class="article last">
+                            <h2 class="article-link-wrapper">
+                                <a class="article-link"
+                                   href="/news/political/247761.html">
+                                    Путін обговорив з постійними членами Радбезу РФ ситуацію на південному сході України, що й далі погіршується, - Пєсков
+                                </a>
+                            </h2>
+                        </div>
+                    
+                </div>
+
+            </div>
+
+        </section>
+    
+        <section class="section-wrapper">
+
+            <h3 class="section-title">
+                <a href="/news/sport.html">
+                    СПОРТ
+                </a>
+            </h3>
+
+            <div class="grid">
+
+                <div class="col-58 vertical-border">
+                    
+                        <div class="grid article article-section-hot">
+
+                            <div class="col-14 article-image-wrapper">
+                                <a href="/news/sport/236704.html">
+                                    <img class="article-image" src="http://deprecated.interfax.com.ua/img/2102_230155.jpg" alt="" />
+                                </a>
+                            </div>
+
+                            <div class="col-34">
+                                <h2 class="article-link-wrapper">
+                                    <a class="article-link"
+                                       href="/news/sport/236704.html">
+                                        У ФФУ спростовують інформацію про відставку президента Федерації Конькова
+                                    </a>
+                                </h2>
+                            </div>
+
+                        </div>
+                    
+                        <div class="grid article article-section-hot">
+
+                            <div class="col-14 article-image-wrapper">
+                                <a href="/news/sport/235481.html">
+                                    <img class="article-image" src="http://deprecated.interfax.com.ua/img/2102_095103.jpg" alt="" />
+                                </a>
+                            </div>
+
+                            <div class="col-34">
+                                <h2 class="article-link-wrapper">
+                                    <a class="article-link"
+                                       href="/news/sport/235481.html">
+                                        Матч між "Металістом" і "Чорноморцем" не відбудеться в Одесі, його перенесено на пізніший термін
+                                    </a>
+                                </h2>
+                            </div>
+
+                        </div>
+                    
+                        <div class="grid article article-section-hot last">
+
+                            <div class="col-14 article-image-wrapper">
+                                <a href="/news/sport/235376.html">
+                                    <img class="article-image" src="http://deprecated.interfax.com.ua/img/0508_112634.jpg" alt="" />
+                                </a>
+                            </div>
+
+                            <div class="col-34">
+                                <h2 class="article-link-wrapper">
+                                    <a class="article-link"
+                                       href="/news/sport/235376.html">
+                                        Матч "Металіст"-"Чорноморець" перенесено з Харкова до Одеси
+                                    </a>
+                                </h2>
+                            </div>
+
+                        </div>
+                    
+                </div>
+
+                <div class="col-38 articles-list">
+                    
+                        <div class="article">
+                            <h2 class="article-link-wrapper">
+                                <a class="article-link"
+                                   href="/news/sport/245796.html">
+                                    "Шахтар" домовився про оренду "Арени Львів" на 2015 р.
+                                </a>
+                            </h2>
+                        </div>
+                    
+                        <div class="article">
+                            <h2 class="article-link-wrapper">
+                                <a class="article-link"
+                                   href="/news/sport/238612.html">
+                                    "Металіст" просить Прем'єр-лігу і ФФУ дати оцінку інциденту під час матчу з "Волинню" - заява
+                                </a>
+                            </h2>
+                        </div>
+                    
+                        <div class="article">
+                            <h2 class="article-link-wrapper">
+                                <a class="article-link"
+                                   href="/news/sport/236487.html">
+                                    Харківська ОДА вдвічі знизила для ФК "Металіст" ціну за користування стадіоном через скрутне фінансове становище клубу
+                                </a>
+                            </h2>
+                        </div>
+                    
+                        <div class="article">
+                            <h2 class="article-link-wrapper">
+                                <a class="article-link"
+                                   href="/news/sport/235775.html">
+                                    "Шахтар" обіграв на виїзді "Карпати"
+                                </a>
+                            </h2>
+                        </div>
+                    
+                        <div class="article last">
+                            <h2 class="article-link-wrapper">
+                                <a class="article-link"
+                                   href="/news/sport/235351.html">
+                                    Міліція просить перенести матч "Металіст"-"Чорноморець" з Харкова до іншого міста
+                                </a>
+                            </h2>
+                        </div>
+                    
+                </div>
+
+            </div>
+
+        </section>
+    
+
+
+                </div>
+                <div class="col-13">
+                    
+
+    <div class="section-wrapper articles-list press-releases">
+        <h3 class="section-title">
+            <a href="/news/press-release.html">ПРЕС-РЕЛІЗИ</a>
+        </h3>
+        
+            <div class="article">
+                <p class="article-link-wrapper">
+                    <a class="article-link"
+                       href="/news/press-release/247857.html">ПРЕС-РЕЛІЗ: В офісному центрі на Дніпровському узвозі, 1 буде реабілітаційний центр для учасників АТО</a>
+                </p>
+            </div>
+        
+            <div class="article">
+                <p class="article-link-wrapper">
+                    <a class="article-link"
+                       href="/news/press-release/247852.html">В офісному центрі на Дніпровському узвозі 1 буде реабілітаційний центр для учасників АТО</a>
+                </p>
+            </div>
+        
+            <div class="article last">
+                <p class="article-link-wrapper">
+                    <a class="article-link"
+                       href="/news/press-release/247735.html">Мінагрополітики, ЄБРР, міжнародні банки допоможуть українським агроекспортерам вийти на ринки ЄС</a>
+                </p>
+            </div>
+        
+    </div>
+
+    <div class="section-wrapper">
+        <h3 class="section-title"><a
+                href="/news/video.html">ВІДЕО</a></h3>
+        
+
+            <div class="grid article article-subtop">
+
+                <div class="col-13 article-image-wrapper">
+                    <a href="/news/video/244390.html">
+                        <img class="article-image" src="http://img.youtube.com/vi/fxNEPqOQxLA/default.jpg" alt=""/>
+                    </a>
+                </div>
+                <div class="col-23">
+                    <p class="article-link-wrapper">
+                        <a class="article-link"
+                           href="/news/video/244390.html">Звернення Порошенка щодо трагедії у м.Волноваха</a>
+                    </p>
+                </div>
+
+            </div>
+        
+    </div>
+
+    <div class="section-wrapper">
+        <h3 class="section-title"><a
+                href="/news/interview.html">ІНТЕРВ'Ю</a>
+        </h3>
+        
+            <div class="grid article article-subtop">
+
+                <div class="col-13 article-image-wrapper">
+                    <a href="/news/interview/238662.html">
+                        <img class="article-image" src="http://deprecated.interfax.com.ua/img/0812_170332.jpg" alt=""/>
+                    </a>
+                </div>
+                <div class="col-23">
+                    <p class="article-link-wrapper">
+                        <a class="article-link"
+                           href="/news/interview/238662.html">Глава Держприкордонслужби України: Ми розроблюємо "дорожню карту" стабілізації ситуації на кордоні з Росією</a>
+                    </p>
+                </div>
+
+            </div>
+        
+            <div class="grid article article-subtop">
+
+                <div class="col-13 article-image-wrapper">
+                    <a href="/news/interview/220289.html">
+                        <img class="article-image" src="http://deprecated.interfax.com.ua/img/2708_174819.jpg" alt=""/>
+                    </a>
+                </div>
+                <div class="col-23">
+                    <p class="article-link-wrapper">
+                        <a class="article-link"
+                           href="/news/interview/220289.html">Державне підприємство – «між розумними та гарними…»</a>
+                    </p>
+                </div>
+
+            </div>
+        
+            <div class="grid article article-subtop">
+
+                <div class="col-13 article-image-wrapper">
+                    <a href="/news/interview/219382.html">
+                        <img class="article-image" src="http://deprecated.interfax.com.ua/img/2108_143320.jpg" alt=""/>
+                    </a>
+                </div>
+                <div class="col-23">
+                    <p class="article-link-wrapper">
+                        <a class="article-link"
+                           href="/news/interview/219382.html">Міністр охорони здоров'я: "Ніхто з президентів України досі не брав на себе відповідальність змінити систему охорони здоров'я"</a>
+                    </p>
+                </div>
+
+            </div>
+        
+            <div class="grid article article-subtop">
+
+                <div class="col-13 article-image-wrapper">
+                    <a href="/news/interview/170168.html">
+                        <img class="article-image" src="http://deprecated.interfax.com.ua/img/2410_122508.jpg" alt=""/>
+                    </a>
+                </div>
+                <div class="col-23">
+                    <p class="article-link-wrapper">
+                        <a class="article-link"
+                           href="/news/interview/170168.html">Президент Венеціанської комісії: Сподіваюся, всі наші рекомендації будуть прийняті до відома в новому законі "Про прокуратуру" в Україні</a>
+                    </p>
+                </div>
+
+            </div>
+        
+            <div class="grid article article-subtop">
+
+                <div class="col-13 article-image-wrapper">
+                    <a href="/news/interview/170128.html">
+                        <img class="article-image" src="http://deprecated.interfax.com.ua/img/2511_165732.jpg" alt=""/>
+                    </a>
+                </div>
+                <div class="col-23">
+                    <p class="article-link-wrapper">
+                        <a class="article-link"
+                           href="/news/interview/170128.html">Комітет з економічних реформ продовжить роботу над розвитком мережі центрів надання адмінпослуг за принципом "єдиного вікна" і медреформою - Акімова</a>
+                    </p>
+                </div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="section-wrapper articles-indent article-indent-time-bold">
+
+            <h3 class="section-title">
+                <a href="/news/press-announcement.html">АНОНСИ</a>
+            </h3>
+            
+                <div class="grid article last">
+                    <div class="col-18 article-time">
+                        <span>12:00</span>
+                        <span>02.02</span>
+                        <span>2015</span>
+                    </div>
+                    <div class="col-78">
+                        <p class="article-link-wrapper">
+                            <a class="article-link"
+                               href="/news/press-announcement/247797.html">До відома: про прес-конференцію в прес-центрі агентства &quot;Інтерфакс-Україна&quot; на тему &quot;Рабська праця? Системні та масові порушення прав засуджених&quot;</a>
+                        </p>
+                    </div>
+                </div>
+            
+        </div>
+    
+
+    
+        <div class="section-wrapper articles-indent article-indent-time-bold">
+
+            <h3 class="section-title">
+                <a href="/news/events.html">ІНТЕРФАКС РЕКОМЕНДУЄ</a>
+            </h3>
+            
+                <div class="grid article">
+                    <div class="col-18 article-time">
+                        <span>05.03</span>
+                        <span>2015</span>
+                    </div>
+                    <div class="col-78">
+                        <p class="article-link-wrapper">
+                            <a class="article-link"
+                               target="_blank" href="http://www.adamsmithconferences.com/AS2349IFXhuk">Ukrainian Energy Forum</a>
+                        </p>
+                    </div>
+                </div>
+            
+                <div class="grid article last">
+                    <div class="col-18 article-time">
+                        <span>18.12</span>
+                        <span>2015</span>
+                    </div>
+                    <div class="col-78">
+                        <p class="article-link-wrapper">
+                            <a class="article-link"
+                               target="_blank" href="http://ludinaroku.com.ua/">Загальнонаціональна програма "Людина року - 2014"</a>
+                        </p>
+                    </div>
+                </div>
+            
+        </div>
+    
+
+    <div class="section-wrapper articles-indent">
+
+        <h3 class="section-title">
+            <a href="/news/press-conference.html">ПРЕС-КОНФЕРЕНЦІЇ</a>
+        </h3>
+        
+            <div class="grid article">
+                <div class="col-18 article-time">
+                    <span>12:47</span>
+                    <span>29.01</span>
+                    <span>2015</span>
+                </div>
+                <div class="col-78">
+                    <p class="article-link-wrapper">
+                        <a class="article-link"
+                           href="/news/press-conference/247526.html">Волонтери закликають спростити порядок виїзду людей із зони активних бойових дій</a>
+                    </p>
+                </div>
+            </div>
+        
+            <div class="grid article">
+                <div class="col-18 article-time">
+                    <span>16:46</span>
+                    <span>27.01</span>
+                    <span>2015</span>
+                </div>
+                <div class="col-78">
+                    <p class="article-link-wrapper">
+                        <a class="article-link"
+                           href="/news/press-conference/247192.html">Апеляція на вирок Пукачу може бути у відкритому режимі, якщо Генпрокуратура і СБУ самі розсекретять матеріали справи - адвокат</a>
+                    </p>
+                </div>
+            </div>
+        
+            <div class="grid article">
+                <div class="col-18 article-time">
+                    <span>17:33</span>
+                    <span>22.01</span>
+                    <span>2015</span>
+                </div>
+                <div class="col-78">
+                    <p class="article-link-wrapper">
+                        <a class="article-link"
+                           href="/news/press-conference/246293.html">У період опалювального сезону тариф на залізничні перевезення вугілля зросте лише на 10% - керівник &quot;Укрзалізниці&quot;</a>
+                    </p>
+                </div>
+            </div>
+        
+            <div class="grid article">
+                <div class="col-18 article-time">
+                    <span>17:29</span>
+                    <span>22.01</span>
+                    <span>2015</span>
+                </div>
+                <div class="col-78">
+                    <p class="article-link-wrapper">
+                        <a class="article-link"
+                           href="/news/press-conference/246290.html">Скорочення лінійного персоналу є убивчим для залізничної галузі - в. о. голови &quot;Укрзалізниці&quot;</a>
+                    </p>
+                </div>
+            </div>
+        
+            <div class="grid article last">
+                <div class="col-18 article-time">
+                    <span>17:11</span>
+                    <span>22.01</span>
+                    <span>2015</span>
+                </div>
+                <div class="col-78">
+                    <p class="article-link-wrapper">
+                        <a class="article-link"
+                           href="/news/press-conference/246285.html">&quot;Укрзалізниця&quot; не співпрацюватиме з РЗ, якщо виявиться співпраця останньої з бойовиками</a>
+                    </p>
+                </div>
+            </div>
+        
+    </div>
+
+
+                </div>
+            </div>
+            <div class="header-wrapper">
+                
+<header>
+    <div class="grid header-1">
+        <ul class="col-auto country-list">
+            <li class="active"><a>Україна</a></li>
+            <li><a target="_blank" rel="nofollow" href="http://interfax.ru/">Росія</a></li>
+            <li><a target="_blank" rel="nofollow" href="http://www.interfax.by/">Білорусь</a></li>
+            <li><a target="_blank" rel="nofollow" href="http://www.interfax.kz/">Казахстан</a></li>
+            <li><a target="_blank" rel="nofollow" href="http://www.interfax.az/">Азербайджан</a></li>
+            <li><a target="_blank" rel="nofollow" href="http://www.interfax.com/">США</a></li>
+        </ul>
+        <ul class="col-auto client-entrace">
+            <li><p>Вхід для клієнтів:</p></li>
+            <li><a target="_blank" rel="nofollow" href="http://sub.interfax.kiev.ua/ukr/">Стрічки новин</a></li>
+            <li><a target="_blank" rel="nofollow" href="http://terminal2.interfax.kiev.ua">Термніал</a></li>
+            <li><a target="_blank" rel="nofollow" href="http://stock.interfax.kiev.ua">Фондовий ринок</a></li>
+        </ul>
+        <ul class="col-auto col-float-right language-change">
+            <li class="active"><a href="http://ua.interfax.com.ua/">УКР</a></li>
+            <li class=""><a href="http://interfax.com.ua/">РУС</a></li>
+            <li class=""><a href="http://en.interfax.com.ua/">ENG</a></li>
+        </ul>
+    </div>
+    <div class="grid header-2">
+        <div class="col-12">
+            <a href="/"><img src="http://static.interfax.com.ua/images/interfax_ukraine_logo_ukr.png" alt="Інтерфакс-Україна" /></a>
+        </div>
+        <div class="col-49 col-float-right header-2-pusher">
+            <div class="grid">
+                <ul class="col-79 agency-links">
+                    <li><a href="/press-center.html">Прес-центр</a></li>
+                    <li><a href="/products.html">Продукти та послуги</a></li>
+                    <li><a href="/about.html">Про агентство</a></li>
+                </ul>
+                <ul class="col-29 col-float-right social-links">
+                    <li><a target="_blank" rel="nofollow" class="social-links-rss" href="/news/last.rss"></a></li>
+                    <li><a target="_blank" rel="nofollow" class="social-links-twitter" href="https://twitter.com/interfaxua"></a></li>
+                    <li><a target="_blank" rel="nofollow" class="social-links-facebook" href="https://www.facebook.com/InterfaxUkraine"></a></li>
+                </ul>
+            </div>
+            <form action="http://www.google.com/search?q=site%3Ainterfax.com.ua+" method="GET" class="search">
+                <input class="search-input" type="text" name="search_query" placeholder="пошук по сайту"/>
+                <span class="search-input-icon"></span>
+            </form>
+        </div>
+    </div>
+</header>
+                
+<nav>
+    <ul class="grid categories">
+        <li class=""><a href="/"><h1>Головна</h1></a>
+        </li>
+        
+            <li class="">
+                <h1>
+                    <a title="Головні новини. Усі повідомлення про останні події, події в громадському житті, культуру України, інформація про органи влади, найважливіші політичні та економічні новини й основні події у світі."
+                       href="/news/general.html">Події</a>
+                </h1>
+            </li>
+        
+            <li class="">
+                <h1>
+                    <a title="Новини політики України та світу. Повідомлення про політиків, політичні сили, парламентські фракції, ключові законопроекти і виборчий процес."
+                       href="/news/political.html">Політика</a>
+                </h1>
+            </li>
+        
+            <li class="">
+                <h1>
+                    <a title="Відеоролики про останні події, події в громадському житті, культуру України, курйозні ситуації та звернення."
+                       href="/news/video.html">Відео</a>
+                </h1>
+            </li>
+        
+            <li class="">
+                <h1>
+                    <a title="Новини спорту. Усі повідомлення про найважливіші спортивні події: трансфери, призначення, результати поєдинків, прогнози, тенденції та скандали. Футбол, хокей, баскетбол, легка атлетика і теніс."
+                       href="/news/sport.html">Спорт</a>
+                </h1>
+            </li>
+        
+        <li class="nav-right-link">
+            
+            <a href="
+                        /news/press-release/185937.html
+                     "
+               rel="nofollow">Вакансії</a>
+            
+            <a href="http://deprecated.interfax.com.ua/rus/subscription/" rel="nofollow"
+                target="_blank">Тестовий доступ</a>
+        </li>
+    </ul>
+</nav>
+
+
+    <div class="hotline">
+        <ul class="hot-categories">
+            <li><p>СПЕЦТЕМИ:</p></li>
+        
+            <li class="">
+                <h1><a href="/news/tag/102.html">Газ</a></h1>
+            </li>
+        
+            <li class="">
+                <h1><a href="/news/tag/22746.html">АТО</a></h1>
+            </li>
+        
+            <li class="">
+                <h1><a href="/news/tag/7045.html">Крим</a></h1>
+            </li>
+        
+            <li class="">
+                <h1><a href="/news/tag/305.html">Курс долара</a></h1>
+            </li>
+        
+            <li class="">
+                <h1><a href="/news/tag/8636.html">Донецьк</a></h1>
+            </li>
+        
+            <li class="">
+                <h1><a href="/news/tag/211.html">Рада</a></h1>
+            </li>
+        
+            <li class="">
+                <h1><a href="/news/tag/12651.html">Санкції</a></h1>
+            </li>
+        
+            <li class="">
+                <h1><a href="/news/tag/11369.html">Луганськ</a></h1>
+            </li>
+        
+            <li class="">
+                <h1><a href="/news/tag/11828.html">Податки</a></h1>
+            </li>
+        
+        </ul>
+    </div>
+
+            </div>
+        </div>
+        <div class="col-29">
+            
+
+
+<div class="ad">
+    <div class="ad-wrapper">
+        <div id="adriver_banner_1338204062031"></div>
+<script>
+    new adriver('adriver_banner_1338204062031', {bt:52, sid:169418, bn:2});
+</script>
+    </div>
+    <span>РЕКЛАМА</span>
+</div>
+
+
+
+<div class="ad">
+    <div class="ad-wrapper">
+        <div id="DIV_DA_144602"></div>
+    </div>
+    <span>РЕКЛАМА</span>
+</div>
+
+
+
+<div class="ad">
+    <div class="ad-wrapper">
+        <script type='text/javascript'>
+(function () {
+    var w = window, d = document;
+    w.admixZArr = (w.admixZArr || []);
+    w.admixerSmOptions = (w.admixerSmOptions || {});
+    w.admixerSmOptions.showAdsOnLoad = true;
+    if (!w.admixerSm) {
+        var adms = document.createElement('script');
+        adms.async = true;
+        adms.type = 'text/javascript';
+        adms.src = 'http://cdn.admixer.net/scriptlib/asm2.js?v=3';
+        var node = d.getElementsByTagName('script')[0];
+        node.parentNode.insertBefore(adms, node);
+    }
+})();
+</script>
+
+<div id="admixer_async_445549954"></div>
+<script type="text/javascript">
+    window.admixZArr = (window.admixZArr || []);
+    window.admixZArr.push({ z: '172a5b18-6913-4148-94ee-4dd716417c5e', ph: 'admixer_async_445549954'});
+</script>
+
+
+
+    </div>
+    <span>РЕКЛАМА</span>
+</div>
+
+
+
+
+
+    
+<div class="ad">
+    <div class="ad-wrapper">
+        <!-- LentaInformNews Start -->
+<div id="LentaInformScriptRootN11822" class="news-block-magick">
+    <div id="LentaInformPreloadN11822"></div>
+    <script>
+        (function(){
+            var D=new Date(),d=document,b='body',ce='createElement',ac='appendChild',st='style',ds='display',n='none',gi='getElementById';
+            var i=d[ce]('iframe');i[st][ds]=n;d[gi]("LentaInformScriptRootN11822")[ac](i);try{var iw=i.contentWindow.document;iw.open();iw.writeln("<ht"+"ml><bo"+"dy></bo"+"dy></ht"+"ml>");iw.close();var c=iw[b];}
+            catch(e){var iw=d;var c=d[gi]("LentaInformScriptRootN11822");}var dv=iw[ce]('div');dv.id="MG_ID";dv[st][ds]=n;dv.innerHTML=11822;c[ac](dv);
+            var s=iw[ce]('script');s.async='async';s.defer='defer';s.charset='utf-8';s.src="http://jsn.lentainform.com/i/n/interfax.com.ua.11822.js?t="+D.getYear()+D.getMonth()+D.getDate()+D.getHours();c[ac](s);})();
+    </script>
+</div>
+<!-- LentaInformNews End -->
+    </div>
+    <span>РЕКЛАМА</span>
+</div>
+
+
+
+
+<div class="ad">
+    <div class="ad-wrapper">
+        <!-- Яндекс.Директ   -->
+<script type="text/javascript">
+    //<![CDATA[
+    yandex_partner_id = 60358;
+    yandex_site_bg_color = 'FFFFFF';
+    yandex_stat_id = 2;
+    yandex_site_charset = 'utf-8';
+    yandex_ad_format = 'direct';
+    yandex_font_size = 0.8;
+    yandex_font_family = 'tahoma';
+    yandex_direct_type = 'vertical';
+    yandex_direct_border_type = 'block';
+    yandex_direct_limit = 2;
+    yandex_direct_header_bg_color = 'FEEAC7';
+    yandex_direct_bg_color = 'FFF9F0';
+    yandex_direct_border_color = 'FBE5C0';
+    yandex_direct_title_color = '0000CC';
+    yandex_direct_url_color = '006600';
+    yandex_direct_all_color = '0000CC';
+    yandex_direct_text_color = '000000';
+    yandex_direct_hover_color = '0066FF';
+    yandex_direct_favicon = true;
+    document.write('<sc'+'ript type="text/javascript" src="http://an.yandex.ru/system/context.js"></sc'+'ript>');
+    //]]>
+</script>
+<!-- / Яндекс.Директ   -->
+    </div>
+    <span>РЕКЛАМА</span>
+</div>
+
+
+
+
+
+<div class="ad">
+    <div class="ad-wrapper">
+        <!-- Ukr.net -->
+
+
+    <div class="linkator-block">
+    
+        <a target="_blank" href="http://job.ukr.net/">работа киев</a>
+    
+        <a target="_blank" href="http://sinoptik.ua/погода-одесса">http://sinoptik.ua/</a>
+    
+        <a target="_blank" href="http://www.ukr.net/">Укрнет новости</a>
+    
+        <a target="_blank" href="http://kinoafisha.ua">фильмы</a>
+    
+        <a target="_blank" href="http://sinoptik.com.ru/погода-новосибирск">Сайт про новосибирск</a>
+    
+        <a target="_blank" href="http://avtosale.ua/">Avtosale.ua</a>
+    
+    </div>
+
+    </div>
+    <span>РЕКЛАМА</span>
+</div>
+
+
+<div class="ad">
+    <div class="ad-wrapper">
+        <iframe src="http://ad.interfax.com.ua/sinoptik.html?1" width="240" height="109" marginwidth="0" marginheight="0" frameborder="0"
+            vspace="0" hspace="0" scrolling="no" allowTransparency="true"
+            style="border:none; overflow:hidden; width:240px; height:109px;" allowTransparency="true" ></iframe>
+
+    </div>
+    <span>ПОГОДА</span>
+</div>
+
+
+<div class="ad">
+    <div class="ad-wrapper">
+        <style>
+.linkator-block a,
+.linkator-block u { font: normal normal 12px/1.3em Arial !important; color: #00B3B5 !important; text-decoration: none; }
+.linkator-block #adbn { width: auto !important; }
+.linkator-block a:hover,
+.linkator-block u:hover { text-decoration: underline; }
+</style>
+
+<!-- Tickets.ua -->
+<div class="linkator-block">
+    <a target="_blank" href="http://tickets.ua/" title="авиабилеты">Авиабилеты</a>
+</div>
+
+<!-- Fotos.ua (deprecated) -->
+
+
+<!-- Price.ua -->
+
+
+    <div class="linkator-block">
+    
+        <a target="_blank" href="http://www.trud.ua/kirovograd.html">вакансии в кировограде</a>
+    
+    </div>
+
+
+
+    </div>
+    <span>РЕКЛАМА</span>
+</div>
+
+        </div>
+
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- 728*90 -->
+		<ins class="adsbygoogle"
+		style="display:inline-block;width:728px;height:90px"
+		data-ad-client="ca-pub-3132297694190262"
+		data-ad-slot="5356575037"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+    </div>
+    
+<footer>
+    <div class="grid footer-wrapper">
+        <div class="col-79 footer">
+
+            <div class="grid" style="margin: 0 0 20px;*margin-top:30px;">
+                <div class="col-12"></div>
+                <div class="col-12"></div>
+            </div>
+
+            <div class="grid">
+                <ul class="footer-links">
+                    <li><a href="/press-center.html">Прес-центр</a></li>
+                    <li><a href="/products.html">Продукти та послуги</a></li>
+                    <li><a href="http://pda.interfax.com.ua/" rel="nofollow" target="_blank">Мобільна версія</a></li>
+                    <li><a href="http://deprecated.interfax.com.ua/rus/info/vacancy/" rel="nofollow" target="_blank">Вакансії</a></li>
+                    <li><a href="/about.html">Про агентство</a></li>
+                </ul>
+                <ul class="social-links dark">
+                    <li><a target="_blank" rel="nofollow" class="social-links-twitter" href="https://twitter.com/interfaxua"></a></li>
+                    <li><a target="_blank" rel="nofollow" class="social-links-facebook" href="https://www.facebook.com/InterfaxUkraine"></a></li>
+                    <li><a target="_blank" rel="nofollow" class="social-links-rss" href="http://www.interfax.com.ua/rus/rss/"></a></li>
+                </ul>
+            </div>
+            <div class="line"></div>
+            <div class="grid">
+                <div class="col-78">
+                    <p class="text">© 1992-2014, Інтерфакс-Україна. Всі права захищені<br />
+Вся інформація, розміщена на цьому веб-сайті,
+призначена тільки для персонального використання і не підлягає
+подальшому <br />
+відтворенню і/або поширенню в будь-якій формі,
+інакше як за письмовим дозволом "Інтерфакс-Україна".
+                    </p>
+                </div>
+                <div class="col-18">
+                    <!--bigmir)net TOP 100-->
+<script type="text/javascript" language="javascript"><!--
+function BM_Draw(oBM_STAT){
+document.write('<table cellpadding="0" cellspacing="0" border="0" style="display:inline;margin-right:4px;"><tr><td><div style="margin:0px;padding:0px;font-size:1px;width:88px;"><div style="background:url(\'http://i.bigmir.net/cnt/samples/diagonal/b59_top.gif\') no-repeat bottom;"> </div><div style="font:10px Tahoma;background:url(\'http://i.bigmir.net/cnt/samples/diagonal/b59_center.gif\');"><div style="text-align:center;"><a href="http://www.bigmir.net/" target="_blank" style="color:#0000ab;text-decoration:none;font:10px Tahoma;">bigmir<span style="color:#ff0000;">)</span>net</a></div><div style="margin-top:3px;padding: 0px 6px 0px 6px;color:#003596;"><div style="float:left;font:10px Tahoma;">'+oBM_STAT.hosts+'</div><div style="float:right;font:10px Tahoma;">'+oBM_STAT.hits+'</div></div><br clear="all"/></div><div style="background:url(\'http://i.bigmir.net/cnt/samples/diagonal/b59_bottom.gif\') no-repeat top;"> </div></div></td></tr></table>');
+}
+//-->
+</script>
+<script type="text/javascript" language="javascript"><!--
+bmN=navigator,bmD=document,bmD.cookie='b=b',i=0,bs=[],bm={o:1,v:3636,s:3636,t:0,c:bmD.cookie?1:0,n:Math.round((Math.random()* 1000000)),w:0};
+for(var f=self;f!=f.parent;f=f.parent)bm.w++;
+try{if(bmN.plugins&&bmN.mimeTypes.length&&(x=bmN.plugins['Shockwave Flash']))bm.m=parseInt(x.description.replace(/([a-zA-Z]|\s)+/,''));
+else for(var f=3;f<20;f++)if(eval('new ActiveXObject("ShockwaveFlash.ShockwaveFlash.'+f+'")'))bm.m=f}catch(e){;}
+try{bm.y=bmN.javaEnabled()?1:0}catch(e){;}
+try{bmS=screen;bm.v^=bm.d=bmS.colorDepth||bmS.pixelDepth;bm.v^=bm.r=bmS.width}catch(e){;}
+r=bmD.referrer.replace(/^w+:\/\//,'');if(r&&r.split('/')[0]!=window.location.host){bm.f=escape(r).slice(0,400);bm.v^=r.length}
+bm.v^=window.location.href.length;for(var x in bm) if(/^[ovstcnwmydrf]$/.test(x)) bs[i++]=x+bm[x];
+bmD.write('<sc'+'ript type="text/javascript" language="javascript" src="http://c.bigmir.net/?'+bs.join('&')+'"></sc'+'ript>');
+//-->
+</script>
+<noscript>
+<a href="http://www.bigmir.net/" target="_blank"><img src="http://c.bigmir.net/?v3636&s3636&t2" width="88" height="31" alt="bigmir)net TOP 100" title="bigmir)net TOP 100" border="0" /></a>
+</noscript>
+<!--bigmir)net TOP 100-->
+                </div>
+            </div>
+            <div class="line"></div>
+            <ul class="country-list">
+                <li class="active"><a>Україна</a></li>
+                <li><a target="_blank" rel="nofollow" href="http://interfax.ru/">Росія</a></li>
+                <li><a target="_blank" rel="nofollow" href="http://www.interfax.by/">Білорусь</a></li>
+                <li><a target="_blank" rel="nofollow" href="http://www.interfax.kz/">Казахстан</a></li>
+                <li><a target="_blank" rel="nofollow" href="http://www.interfax.az/">Азербайджан</a></li>
+                <li><a target="_blank" rel="nofollow" href="http://www.interfax.com/">США</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+    <script type="text/javascript">
+    var el = document.getElementById('CNM576');
+    if (el && el.getAttribute('atr576', 3)) {
+        el.setAttribute('atr576', '');
+        var dateNM = new Date();
+        var t = Math.floor(dateNM.getTime()/(1000*600));
+        var NMces=document.createElement('script');
+        NMces.type = 'text/javascript';
+        NMces.charset = 'UTF-8';
+        NMces.src='http://c.novostimira.com.ua/l/576?v='+t;
+        el.parentNode.appendChild(NMces);
+    }
+</script>
+
+
+    <!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter20477941 = new Ya.Metrika({id:20477941,
+                    webvisor:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/20477941" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function () {
+            window.appendScript = function (scriptSource, charset) {
+                var po = document.createElement('script');
+                if (charset) {
+                    po.charset = charset;
+                }
+                po.src = scriptSource;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(po, s);
+            };
+            window.appendScript('http://static.interfax.com.ua/js/script.js?f');
+            window.appendScript('//apis.google.com/js/plusone.js');
+            window.appendScript('//vk.com/js/api/openapi.js?87');
+            window.appendScript('//connect.facebook.net/en_GB/all.js#xfbml=1&appId=392969614091591');
+            window.appendScript('//platform.twitter.com/widgets.js');
+        })();
+    </script>
+    <script charset="windows-1251" type="text/javascript" src="http://code.directadvert.ru/show.cgi?adp=144602&div=DIV_DA_144602"></script>
+<!-- AddThis Smart Layers BEGIN -->
+<!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50aa6bfa6d0ba904"></script>
+<script type="text/javascript">
+  addthis.layers({
+    'theme' : 'light',  
+    'whatsnext' : {}  
+  });
+</script>
+<!-- AddThis Smart Layers END -->
+</body>
+</html>

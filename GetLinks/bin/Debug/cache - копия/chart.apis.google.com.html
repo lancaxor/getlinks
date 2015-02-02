@@ -1,0 +1,844 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="devsite">
+  <head>
+    
+    <script>var devsite=window.devsite||{};devsite.timing={};devsite.timing.timers=[];devsite.timing.tick=function(c,a,e){for(var b=0;b<devsite.timing.timers.length;b++)devsite.timing.timers[b].tick(c,a,e)};devsite.timing.report=function(c){devsite.setTimeout(function(){for(var a=0;a<devsite.timing.timers.length;a++)window.jstiming.report(devsite.timing.timers[a],c)},500)};
+devsite.timing.init=function(c){devsite.timing.timers.push(window.jstiming.load);if(c){var a=new window.jstiming.Timer;a.name=c;devsite.timing.timers.push(a)}if(document.addEventListener){var e=function(){devsite.timing.tick("ol");document.removeEventListener("DOMContentLoaded",e,!1)};document.addEventListener("DOMContentLoaded",e,!1)}};(function(){function c(a){this.t={};this.tick=function(a,b,c){var d=void 0!=c?c:(new Date).getTime();this.t[a]=[d,b];if(void 0==c)try{window.console.timeStamp("CSI/"+a)}catch(e){}};this.tick("start",null,a)}var a;window.performance&&(a=window.performance.timing);var e=a?new c(a.responseStart):new c;window.jstiming={Timer:c,load:e};if(a){var b=a.navigationStart,f=a.responseStart;0<b&&f>=b&&(window.jstiming.srt=f-b)}if(a){var d=window.jstiming.load;0<b&&f>=b&&(d.tick("_wtsrt",void 0,b),d.tick("wtsrt_",
+"_wtsrt",f),d.tick("tbsd_","wtsrt_"))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),d&&0<b&&(d.tick("_tbnd",void 0,window.chrome.csi().startE),d.tick("tbnd_","_tbnd",b))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,d&&0<b&&(d.tick("_tbnd",void 0,window.external.startE),d.tick("tbnd_","_tbnd",b))),a&&(window.jstiming.pt=a)}catch(g){}})();
+devsite.timing.init('DocPage');</script>
+    
+      <link href="https://developers.google.com/chart/?csw=1" rel="canonical">
+    
+    <meta charset="utf-8" />
+    
+      
+    
+    <meta name="xsrf_token" content="FYTc6jFLgvjjxpyM2716xjoxNDIyNjcxMTQzMTQyMzAw" />
+      <link rel="stylesheet" type="text/css" href="https://developers.google.com/_static/5f35d26378/css/screen-maia.css" />
+      <link href='//fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic,500,500italic,300,300italic' rel='stylesheet' type='text/css'>
+    
+      
+        <link rel="stylesheet" type="text/css" href="https://developers.google.com/_static/5f35d26378/css/screen-docs.css" />
+      
+      
+      <link rel="stylesheet" type="text/css" id="screen-foot" data-href="https://developers.google.com/_static/5f35d26378/css/screen-foot.css" />
+    
+    <link rel="shortcut icon" href="/_static/5f35d26378/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/_static/5f35d26378/images/apple-touch-icon.png">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+    
+    
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Google Developers" href="/search/opensearch.xml">
+    
+    
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="https://developers.google.com/_static/5f35d26378/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <meta property="og:site_name" content="Google Developers">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://developers.google.com/chart/?csw=1">
+  <meta property="og:locale" content="en">
+
+  <script type="text/javascript">
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+    
+      <title>Google Charts &mdash; Google Developers</title>
+      <meta property="og:title" content="Google Charts &mdash; Google Developers">
+    
+  
+  
+  <meta name="description" content="Interactive charts in your browser" />
+  <meta property="og:description" content="Interactive charts in your browser">
+  
+
+  
+
+  
+    
+    
+    
+  
+
+
+    
+
+    <style>
+    
+    </style>
+  </head>
+  <body class=" slim   two-column docs helpouts normal-width">
+  <div class="maia-max">
+
+    
+    <div id="sandbar">
+      
+        
+          
+
+
+
+
+
+<div id="maia-header" class="maia-header">
+  <header id="googlebar">
+    <div id="logo-wrapper">
+      <a id="logo" href="/">
+        <img src="https://developers.google.com/_static/5f35d26378/images/developers-logo.svg" alt="Google"/>
+      </a>
+      <script>
+      if (navigator.userAgent.match(/msie/i) && navigator.appVersion.indexOf['8'] ==0) {
+        $('#gc-logo img').attr({src:'https://developers.google.com/_static/5f35d26378/images/developers-logo.png'});
+      }
+      </script>
+    </div>
+
+    <div id="search-wrapper" class="head-sec search-wrapper2 ">
+      <form class="search" action="/search/results" method="GET" id="top-search">
+        <div id="searchbox" class="searchbox">
+           
+           <input type="text" name="q" class="q" id="q" value="" placeholder='Search' autocomplete="off" />
+        </div>
+        <button id="search-button" class="button button-blue big">
+          <img src="/_static/images/v2/search.png" alt="Search">
+        </button>
+        
+          <input type="hidden" name="p" id="search_project" value="/chart" data-project-name="Google Charts" data-project-path="/chart" data-query-match=""/>
+        
+        
+
+
+  
+  <input type="hidden" id="suggest-category-label-2" value="Pages in Google Charts" />
+  
+  <input type="hidden" id="suggest-category-label-3" value="Reference in Google Charts" />
+
+
+<input type="hidden" id="suggest-category-label-1" value="Products" />
+
+<input type="hidden" id="suggest-all-results-label" value="See all results for" />
+
+      </form>
+    </div>
+
+    
+
+    <div id="social-wrapper" class="social">
+      
+      <span class='signed-out'>
+        <a href="https://www.google.com/accounts/ServiceLogin?service=ahsid&amp;passive=true&amp;continue=https://developers.google.com/chart/&amp;ltmpl=" id="loginLink" class="button">Sign in</a>
+      </span>
+      
+    </div>
+  </header>
+</div>
+
+<script>
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        window.devsite.search.init('en', true, null, true)
+      }
+    });
+  }
+</script>
+
+        
+      
+    </div><!-- end div.sandbar -->
+    
+
+    
+    <div class="kd-butterbar">
+      <span>
+        <span class="message"></span>
+        
+        <a href="#" class="kd-butterbar-dismiss">Hide</a>
+      </span>
+    </div>
+    
+    <div id="gc-wrapper" itemscope itemtype="http://schema.org/Article">
+      
+        
+          <input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {&quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed out&quot;}, &quot;gaid&quot;: &quot;UA-24532603-1&quot;}" />
+        
+          <input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {}, &quot;gaid&quot;: &quot;UA-47037920-1&quot;}" />
+        
+          <input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {&quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed out&quot;}, &quot;gaid&quot;: &quot;UA-49880327-1&quot;}" />
+        
+      
+
+      
+
+      
+
+<div id="gc-appnav" class="maia-aux">
+  <ol class="breadcrumbs">
+    
+    <li><a href="/products/">Products</a></li>
+    
+    <li><a href="/chart/">Google Charts</a></li>
+    
+  </ol>
+</div>
+
+
+
+      
+      
+      
+          <div class="maia-aux" id="gc-appbar">
+
+          
+          
+
+  <a href="/chart/" class="gc-appbar-title">
+    
+    Google Charts
+  </a>
+
+
+
+<div class="plusone-container" style="height:27px">
+  <div class="g-plusone"
+    data-href="https://developers.google.com/chart/?csw=1"
+    data-size="medium"
+    data-source="google:developers"></div>
+</div>
+
+
+
+  
+
+
+
+<div class="helpouts-container">
+  <a href="https://helpouts.google.com/partner/landing/provider/googledevelopers?utm_source=devsite_pb&utm_medium=banner&utm_campaign=devsite_pb_banner" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="In-Page Helpouts Banner">
+    <img src="/_static/5f35d26378/images/helpouts-banner.png" alt="Help developers solve problems with Google Helpouts">
+  </a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+          
+        </div>
+      
+      
+
+      
+        
+          <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      <div id="gc-sidebar">
+        
+
+  
+
+
+
+  <nav class="gc-toc"><ul><li class=""><a href="/chart/interactive/docs/index" title="Overview" data-title="Overview"><span>Overview</span></a><ul><li class=""><a href="/chart/interactive/docs/quick_start" title="Hello Charts!" data-title="Hello Charts!"><span>Hello Charts!</span></a><ul><li class=""><a href="/chart/interactive/docs/basic_load_libs" title="Loading the Libraries" data-title="Loading the Libraries"><span>Loading the Libraries</span></a></li><li class=""><a href="/chart/interactive/docs/basic_preparing_data" title="Preparing Data" data-title="Preparing Data"><span>Preparing Data</span></a></li><li class=""><a href="/chart/interactive/docs/basic_customizing_chart" title="Customizing with Options" data-title="Customizing with Options"><span>Customizing with Options</span></a></li><li class=""><a href="/chart/interactive/docs/basic_draw_chart" title="Drawing the Chart" data-title="Drawing the Chart"><span>Drawing the Chart</span></a></li><li class=""><a href="/chart/interactive/docs/drawing_charts" title="Drawing Charts" data-title="Drawing Charts"><span>Drawing Charts</span></a><ul><li class=""><a href="/chart/interactive/docs/drawing_charts#chart.draw" title="chart.draw()" data-title="chart.draw()"><span>chart.draw()</span></a></li><li class=""><a href="/chart/interactive/docs/drawing_charts#chartwrapper" title="ChartWrapper" data-title="ChartWrapper"><span>ChartWrapper</span></a></li></ul></li><li class=""><a href="/chart/interactive/docs/basic_interactivity" title="Adding Interactivity" data-title="Adding Interactivity"><span>Adding Interactivity</span></a></li><li class=""><a href="/chart/interactive/docs/spreadsheets" title="Using Charts and Spreadsheets" data-title="Using Charts and Spreadsheets"><span>Using Charts and Spreadsheets</span></a></li><li class=""><a href="/chart/interactive/docs/printing" title="Printing PNG Charts" data-title="Printing PNG Charts"><span>Printing PNG Charts</span></a></li></ul></li></ul></li><li class=""><a href="/chart/interactive/docs/gallery" title="Chart Gallery" data-title="Chart Gallery"><span>Chart Gallery</span></a><ul><li class=""><a href="/chart/interactive/docs/examples" title="Miscellaneous Examples" data-title="Miscellaneous Examples"><span>Miscellaneous Examples</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/annotationchart" title="Annotation Charts" data-title="Annotation Charts"><span>Annotation Charts</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/areachart" title="Area Charts" data-title="Area Charts"><span>Area Charts</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/barchart" title="Bar Charts" data-title="Bar Charts"><span>Bar Charts</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/bubblechart" title="Bubble Charts" data-title="Bubble Charts"><span>Bubble Charts</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/calendar" title="Calendar Charts" data-title="Calendar Charts"><span>Calendar Charts</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/candlestickchart" title="Candlestick Charts" data-title="Candlestick Charts"><span>Candlestick Charts</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/columnchart" title="Column Charts" data-title="Column Charts"><span>Column Charts</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/combochart" title="Combo Charts" data-title="Combo Charts"><span>Combo Charts</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/diffchart" title="Diff Charts" data-title="Diff Charts"><span>Diff Charts</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/gauge" title="Gauge Charts" data-title="Gauge Charts"><span>Gauge Charts</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/geochart" title="Geo Charts" data-title="Geo Charts"><span>Geo Charts</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/histogram" title="Histograms" data-title="Histograms"><span>Histograms</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/intervals" title="Intervals" data-title="Intervals"><span>Intervals</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/linechart" title="Line Charts" data-title="Line Charts"><span>Line Charts</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/map" title="Maps" data-title="Maps"><span>Maps</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/orgchart" title="Org Charts" data-title="Org Charts"><span>Org Charts</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/piechart" title="Pie Charts" data-title="Pie Charts"><span>Pie Charts</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/sankey" title="Sankey Diagrams" data-title="Sankey Diagrams"><span>Sankey Diagrams</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/scatterchart" title="Scatter Charts" data-title="Scatter Charts"><span>Scatter Charts</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/steppedareachart" title="Stepped Area Charts" data-title="Stepped Area Charts"><span>Stepped Area Charts</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/table" title="Table Charts" data-title="Table Charts"><span>Table Charts</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/timeline" title="Timelines" data-title="Timelines"><span>Timelines</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/treemap" title="Tree Map Charts" data-title="Tree Map Charts"><span>Tree Map Charts</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/trendlines" title="Trendlines" data-title="Trendlines"><span>Trendlines</span></a></li><li class="new"><a href="/chart/interactive/docs/gallery/wordtree" title="Word Trees" data-title="Word Trees"><span>Word Trees<sup>New!</sup></span></a></li></ul></li><li class=""><span class="tlw-title" data-title="Advanced Usage">Advanced Usage</span><ul><li class=""><a href="/chart/interactive/docs/customizing_charts" title="Customizing Charts" data-title="Customizing Charts"><span>Customizing Charts</span></a><ul><li class=""><a href="/chart/interactive/docs/customizing_axes" title="Axes Options" data-title="Axes Options"><span>Axes Options</span></a></li><li class=""><a href="/chart/interactive/docs/gallery" title="Chart Types" data-title="Chart Types"><span>Chart Types</span></a></li><li class=""><a href="/chart/interactive/docs/dev/index" title="Contributing a New Chart" data-title="Contributing a New Chart"><span>Contributing a New Chart</span></a></li><li class=""><a href="/chart/interactive/docs/crosshairs" title="Crosshairs" data-title="Crosshairs"><span>Crosshairs</span></a></li><li class=""><a href="/chart/interactive/docs/reference#formatters" title="Formatters" data-title="Formatters"><span>Formatters</span></a></li><li class=""><a href="/chart/interactive/docs/lines" title="Lines" data-title="Lines"><span>Lines</span></a></li><li class="new"><a href="/chart/interactive/docs/overlays" title="Overlays" data-title="Overlays"><span>Overlays<sup>New!</sup></span></a></li><li class="new"><a href="/chart/interactive/docs/points" title="Points" data-title="Points"><span>Points<sup>New!</sup></span></a></li><li class=""><a href="/chart/interactive/docs/customizing_tooltip_content" title="Tooltips" data-title="Tooltips"><span>Tooltips</span></a></li></ul></li><li class=""><a href="/chart/interactive/docs/general_dev_tools" title="Development Tools" data-title="Development Tools"><span>Development Tools</span></a></li><li class=""><a href="/chart/interactive/docs/library_loading_enhancements" title="Library Loading" data-title="Library Loading"><span>Library Loading</span></a></li><li class=""><span class="tlw-title" data-title="Interacting with Charts">Interacting with Charts</span><ul><li class=""><a href="/chart/interactive/docs/events" title="Handling Events" data-title="Handling Events"><span>Handling Events</span></a></li><li class=""><a href="/chart/interactive/docs/animation" title="Animation" data-title="Animation"><span>Animation</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/controls" title="Controls and Dashboards" data-title="Controls and Dashboards"><span>Controls and Dashboards</span></a></li><li class=""><a href="/chart/interactive/docs/gallery/toolbar" title="Toolbars" data-title="Toolbars"><span>Toolbars</span></a></li><li class=""><a href="/chart/interactive/docs/drawing_charts#charteditor" title="ChartEditor" data-title="ChartEditor"><span>ChartEditor</span></a></li></ul></li><li class=""><span class="tlw-title" data-title="Chart Data">Chart Data</span><ul><li class=""><a href="/chart/interactive/docs/datatables_dataviews" title="DataTables and DataViews" data-title="DataTables and DataViews"><span>DataTables and DataViews</span></a><ul><li class=""><a href="/chart/interactive/docs/roles" title="Data Roles" data-title="Data Roles"><span>Data Roles</span></a></li></ul></li><li class=""><a href="/chart/interactive/docs/datesandtimes" title="Dates and Times" data-title="Dates and Times"><span>Dates and Times</span></a></li><li class=""><a href="/chart/interactive/docs/php_example" title="Connecting Your Database" data-title="Connecting Your Database"><span>Connecting Your Database</span></a></li><li class=""><a href="/chart/interactive/docs/queries" title="Querying a Chart Tools Datasource" data-title="Querying a Chart Tools Datasource"><span>Querying a Chart Tools Datasource</span></a><ul><li class=""><a href="/chart/interactive/docs/spreadsheets" title="Google Spreadsheets" data-title="Google Spreadsheets"><span>Google Spreadsheets</span></a></li><li class=""><a href="/chart/interactive/docs/fusiontables" title="Fusion Tables" data-title="Fusion Tables"><span>Fusion Tables</span></a></li><li class=""><a href="/chart/interactive/docs/querylanguage" title="Query Language Reference" data-title="Query Language Reference"><span>Query Language Reference</span></a></li><li class=""><a href="/chart/interactive/docs/dev/implementing_data_source" title="Implementing a Datasource" data-title="Implementing a Datasource"><span>Implementing a Datasource</span></a></li></ul></li></ul></li></ul></li><li class=""><span class="tlw-title" data-title="Community">Community</span><ul><li class=""><a href="http://groups.google.com/group/google-visualization-api" title="Forum" data-title="Forum"><span>Forum</span></a></li><li class=""><a href="http://code.google.com/p/google-visualization-api-issues/issues/list" title="Issues &amp; Requests" data-title="Issues &amp; Requests"><span>Issues &amp; Requests</span></a></li><li class=""><a href="/chart/interactive/faq" title="FAQ" data-title="FAQ"><span>FAQ</span></a></li><li class=""><a href="/chart/interactive/docs/user_gallery" title="Hall of Fame" data-title="Hall of Fame"><span>Hall of Fame</span></a></li></ul></li><li class=""><a href="/chart/interactive/docs/reference" title="API Reference" data-title="API Reference"><span>API Reference</span></a><ul><li class=""><a href="/chart/interactive/docs/reference#DataTable" title="DataTable Class" data-title="DataTable Class"><span>DataTable Class</span></a></li><li class=""><a href="/chart/interactive/docs/reference#DataView" title="DataView Class" data-title="DataView Class"><span>DataView Class</span></a></li><li class=""><a href="/chart/interactive/docs/roles" title="Data Roles" data-title="Data Roles"><span>Data Roles</span></a></li><li class=""><a href="/chart/interactive/docs/reference#chartwrapperobject" title="ChartWrapper Class" data-title="ChartWrapper Class"><span>ChartWrapper Class</span></a></li><li class=""><a href="/chart/interactive/docs/reference#google_visualization_charteditor" title="ChartEditor Class" data-title="ChartEditor Class"><span>ChartEditor Class</span></a></li><li class=""><a href="/chart/interactive/docs/reference#google_visualization_data" title="Data Manipulation Methods" data-title="Data Manipulation Methods"><span>Data Manipulation Methods</span></a><ul><li class=""><a href="/chart/interactive/docs/reference#google_visualization_data_group" title="group()" data-title="group()"><span>group()</span></a></li><li class=""><a href="/chart/interactive/docs/reference#google_visualization_data_join" title="join ()" data-title="join ()"><span>join ()</span></a></li></ul></li><li class=""><a href="/chart/interactive/docs/reference#formatters" title="Formatters" data-title="Formatters"><span>Formatters</span></a><ul><li class=""><a href="/chart/interactive/docs/reference#arrowformatter" title="ArrowFormat" data-title="ArrowFormat"><span>ArrowFormat</span></a></li><li class=""><a href="/chart/interactive/docs/reference#barformatter" title="BarFormat" data-title="BarFormat"><span>BarFormat</span></a></li><li class=""><a href="/chart/interactive/docs/reference#colorformatter" title="ColorFormat" data-title="ColorFormat"><span>ColorFormat</span></a></li><li class=""><a href="/chart/interactive/docs/reference#dateformatter" title="DateFormat" data-title="DateFormat"><span>DateFormat</span></a></li><li class=""><a href="/chart/interactive/docs/reference#numberformatter" title="NumberFormat" data-title="NumberFormat"><span>NumberFormat</span></a></li><li class=""><a href="/chart/interactive/docs/reference#patternformatter" title="PatternFormat" data-title="PatternFormat"><span>PatternFormat</span></a></li></ul></li><li class=""><a href="/chart/interactive/docs/reference#GadgetHelper" title="GadgetHelper Class" data-title="GadgetHelper Class"><span>GadgetHelper Class</span></a></li><li class=""><a href="/chart/interactive/docs/reference#queryobjects" title="Query Classes" data-title="Query Classes"><span>Query Classes</span></a><ul><li class=""><a href="/chart/interactive/docs/reference#Query" title="Query" data-title="Query"><span>Query</span></a></li><li class=""><a href="/chart/interactive/docs/reference#QueryResponse" title="QueryResponse" data-title="QueryResponse"><span>QueryResponse</span></a></li></ul></li><li class=""><a href="/chart/interactive/docs/reference#errordisplay" title="Error Display Class" data-title="Error Display Class"><span>Error Display Class</span></a></li><li class=""><a href="/chart/interactive/docs/reference#events" title="Events" data-title="Events"><span>Events</span></a><ul><li class=""><a href="/chart/interactive/docs/reference#trigger" title="trigger()" data-title="trigger()"><span>trigger()</span></a></li><li class=""><a href="/chart/interactive/docs/reference#addlistener" title="addListener()" data-title="addListener()"><span>addListener()</span></a></li></ul></li><li class=""><a href="/chart/interactive/docs/reference#standardproperties" title="Standard Visualization Methods and Properties" data-title="Standard Visualization Methods and Properties"><span>Standard Visualization Methods and Properties</span></a><ul><li class=""><a href="/chart/interactive/docs/reference#visconstructor" title="Constructor" data-title="Constructor"><span>Constructor</span></a></li><li class=""><a href="/chart/interactive/docs/reference#visdraw" title="draw()" data-title="draw()"><span>draw()</span></a></li><li class=""><a href="/chart/interactive/docs/reference#visgetselection" title="getSelection()" data-title="getSelection()"><span>getSelection()</span></a></li><li class=""><a href="/chart/interactive/docs/reference#vissetselection" title="setSelection()" data-title="setSelection()"><span>setSelection()</span></a></li></ul></li><li class=""><a href="/chart/interactive/docs/reference#assortedmethods" title="Assorted Static Methods" data-title="Assorted Static Methods"><span>Assorted Static Methods</span></a><ul><li class=""><a href="/chart/interactive/docs/reference#google.visualization.arraytodatatae" title="arrayToDataTable()" data-title="arrayToDataTable()"><span>arrayToDataTable()</span></a></li><li class=""><a href="/chart/interactive/docs/reference#google.visualization.drawchart" title="drawChart()" data-title="drawChart()"><span>drawChart()</span></a></li><li class=""><a href="/chart/interactive/docs/reference#drawToolbar" title="drawToolbar()" data-title="drawToolbar()"><span>drawToolbar()</span></a></li></ul></li></ul></li><li class=""><a href="/chart/interactive/docs/release_notes" title="Google Chart News" data-title="Google Chart News"><span>Google Chart News</span></a></li><li class=""><span class="tlw-title" data-title="Related Chart Tools">Related Chart Tools</span><ul><li class="deprecated"><a href="/chart/image/" title="Image Charts" data-title="Image Charts"><span>Image Charts<sup>Deprecated</sup></span></a></li><li class="deprecated"><a href="/chart/infographics/" title="Infographics (Pins, Icons, etc.)" data-title="Infographics (Pins, Icons, etc.)"><span>Infographics (Pins, Icons, etc.)<sup>Deprecated</sup></span></a></li></ul></li><li class=""><span class="tlw-title" data-title="Terms and Conditions">Terms and Conditions</span><ul><li class=""><a href="/chart/interactive/docs/security_privacy" title="Security and Privacy" data-title="Security and Privacy"><span>Security and Privacy</span></a></li><li class=""><a href="/chart/terms" title="Terms of Service" data-title="Terms of Service"><span>Terms of Service</span></a></li></ul></li></ul></nav>
+
+
+
+      </div>
+      
+
+      <div id="gc-content"
+           
+           
+           >
+        
+        <div>
+  
+          
+  
+  <div itemprop="articleBody">
+  
+
+<link href="/chart/interactive/css/splash_page.css" type="text/css" rel="stylesheet"> 
+<link href="/chart/interactive/css/buttons.css" type="text/css" rel="stylesheet"> 
+
+<div style="margin-top: -15px;">
+<iframe src="/chart/index-charts" height="430px" width="100%" frameborder="no" scrolling="no"></iframe>
+</div>
+
+
+<div>
+  
+  <div style="clear:both;"></div>
+    <table class="columns">
+        <tbody>
+            <tr>
+		<td width="33%" class="feature">
+                    <a href="/chart/interactive/docs/gallery"><img src="/chart/interactive/images/feature_gallery.png"/>
+                    <div>
+                        <h2 style="margin-top: 0em; border-bottom: 0px;">Rich Gallery</h2>
+                        <p>
+                            Choose from a variety of charts. From simple scatter plots to hierarchical treemaps, find the best fit for your data.
+                        </p>
+                    </div></a>
+                </td>
+    <td width="33%" class="feature">
+                    <a href="/chart/interactive/docs/customizing_charts"><img src="/chart/interactive/images/feature_custom.png"/>
+                    <div>
+                        <h2 style="margin-top: 0em; border-bottom: 0px;">Customizable</h2>
+                        <p>
+                            Make the charts your own. Configure an extensive set of options to perfectly match the look and feel of your website.
+                        </p>
+                    </div></a>
+                </td>
+                <td width="33%" class="feature">
+                    <a href="/chart/interactive/docs"><img src="/chart/interactive/images/feature_html5.png"/>
+                    <div>
+                        <h2 style="margin-top: 0em; border-bottom: 0px;">HTML5 / SVG</h2>
+                        <p>
+                            Cross-browser compatibility (adopting VML for older IE versions) and cross-platform portability to iOS and new Android releases. No plugins are needed.
+                        </p>
+                    </div></a>
+                </td>
+            </tr>
+            <tr>
+                <td width="33%" class="feature">
+                    <a href="/chart/terms#license"><img src="/chart/interactive/images/feature_free.png"/>
+                    <div>
+                        <h2 style="margin-top: 0em; border-bottom: 0px;">Free</h2>
+                        <p>
+                           Use the same chart tools Google uses, completely free and with three years' backward compatability guaranteed.
+                        </p>
+                    </div></a>
+                </td>
+                <td width="33%" class="feature">
+                    <a href="/chart/interactive/docs/gallery/controls"><img src="/chart/interactive/images/feature_interactive.png"/>
+                    <div>
+                      <h2 style="margin-top: 0em; border-bottom: 0px;">Controls and Dashboards</h2>
+                      <p>
+                        Easily connect charts and controls into an interactive dashboard.
+                      </p>
+                    </div></a>
+                </td>
+                <td width="33%" class="feature">
+                    <a href="/chart/interactive/docs/queries"><img src="/chart/interactive/images/feature_dynamic.png"/>
+                    <div>
+                        <h2 style="margin-top: 0em; border-bottom: 0px;">Dynamic Data</h2>
+                        <p>
+                            Connect to your data in real time using a variety of data connection tools and protocols.
+                        </p>
+                        <p>
+                        </p>
+                    </div></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div> 
+
+<table class="columns" style="background-color: #EFEFEF;">
+<tr>
+<td width="33%">
+  <div style="margin-left: 58px; margin-right: 2px;">
+  <h2>Looking for Infographics?</h2>
+  <p><span class="asset"><img src="/chart/interactive/images/pointers.png" alt="Pointer" /> Pointers</span><br/>
+    <span class="asset"><img src="/chart/interactive/images/qrs.png" alt="QR Code" /> QR Codes</span><br/>
+    <span class="asset"><img src="/chart/interactive/images/formulas.png" alt="Formula" /> Formulas</span></p>
+  <p>Generate Pointers, QR codes, and other data-based <a href="/chart/infographics">infographic images</a>.</p>
+
+  <h2>Looking for <br/> Image Charts?</h2>
+  <p>The Image Charts API is still available <a href="/chart/image">here</a>.</p>
+  </div></div>
+</td>
+
+<td width="33%">
+  <div style="margin-left: 58px; margin-right: 2px;">
+  <h2>How do I start?</h2>
+  <ul class="noindent" style="margin-top:1em">
+      <li>
+          Learn about our Chart Tools by reading the <a href="/chart/interactive/docs/index">Introduction</a>.
+      </li>
+      <li>
+          Copy and paste a code snippet to create your first chart, as shown in our <a
+href="/chart/interactive/docs/quick_start">Quick Start</a>.
+      </li>
+      <li>
+          Explore our stunning <a href="/chart/interactive/docs/gallery">Chart
+              Gallery</a>.
+      </li>
+  </ul>
+  </div>
+</td>
+<td width="34%">
+  <div style="margin-left: 58px; margin-right: 58px;">
+  <h2>Featured Video</h2>
+  <a href="http://www.youtube.com/watch?v=NZtgT4jgnE8" target="_blank"><img src="/chart/interactive/images/vid_io_2011.png" style="border-color:#5b5b5b; float: left; margin:10px 10px 0 0;"/></a>
+  <p style="margin: 0px 0px 0px 10px !important;">
+      Google I/O 2011 - Google's unified approach for creating live dynamic charts on the web
+      <br/>
+      <a href="http://www.youtube.com/watch?v=NZtgT4jgnE8" target="_blank">Watch Now</a>
+  </p>
+  </div>
+</td>
+</tr>
+</table>
+
+
+  </div>
+  
+
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="/site-policies">Site Policies</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2014-06-16T20:36:16.364280" id="gc-content-last-updated">Last updated June 16, 2014.</div>
+
+</div>
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+      
+        
+          
+        
+      
+
+      
+  
+       <!-- not (if site.theme == 'maia' or site.theme == 'maia-cloud') -->
+      <div id="gc-footer-container">
+        <footer id="gc-footer">
+          
+
+
+
+
+        <div id="maia-footer-local" class="footer-local">
+          <div id="footer-top" class="maia-aux">
+            <div class="footer-top-wrap">
+
+             <div class="search-wrap new_left">
+               <div class="dev-wrap new_left">
+                 <a href="/"><img src="/_static/images/v2/developers-logo.png" /></a>
+               </div>
+               <form class="search new_left" action="/search/results" method="GET" id="footer-search">
+                 <div id="searchbox" class="searchbox new_left">
+                   <input type="text" name="q" class="q" id="q" value="" placeholder="Search" autocomplete="off">
+                 </div>
+                 <button id="search-button" class="button button-blue big new_left">
+                   <img src="/_static/images/v2/search.png" alt="Search">
+                 </button>
+               </form>
+             </div>
+             <div class="plus-wrap new_left">
+               <div class="plus">
+                 <!-- Place this tag where you want the widget to render. -->
+                 <div class="g-follow" data-annotation="bubble" data-height="24" data-href="https://plus.google.com/111395306401981598462" data-rel="publisher"></div>
+                 <!-- Place this tag after the last widget tag. -->
+                 <script type="text/javascript">
+                   (function() {
+                     var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                     po.src = 'https://apis.google.com/js/platform.js';
+                     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                   })();
+                 </script>
+               </div>
+             </div>
+           </div>
+         </div>
+
+      <div id="footer-list" class="maia-aux">
+    <div class="footer-list-wrap  maia-cols">
+      <div class="maia-col-3">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/products/">Products</a></li>
+          <li><a href="/showcase/">Showcase</a></li>
+          <li><a href="/events/">Events</a></li>
+          <li><a href="/community/">Communities</a></li>
+        </ul>
+      </div>
+      <div class="maia-col-3">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="http://googledevelopers.blogspot.com/" class="gc-analytics-event"
+          data-category="Site-Wide Custom Events" data-label="Footer Blog Link">Blog</a></li>
+          <li><a href="https://plus.google.com/+GoogleDevelopers/posts" class="gc-analytics-event"
+          data-category="Site-Wide Custom Events" data-label="Footer G+ Link">Google+ Community</a></li>
+          <li><a href="http://www.youtube.com/user/GoogleDevelopers" class="gc-analytics-event"
+          data-category="Site-Wide Custom Events" data-label="Footer YouTube Link">YouTube Channel</a></li>
+          <li><a class="google-feedback" id="devsite-feedback-site">Report an Issue</a></li>
+          <li><a href="/careers/">Jobs</a></li>
+        </ul>
+      </div>
+      
+      <script type="text/javascript">
+      $(document).ready(function() {
+        new devsite.feedback.Widget({
+            'product_id': '81425',
+            'bucket': 'Documentation',
+            'version': 'devsite-20150130-r00-rc01.default'
+          },
+          document.querySelectorAll('#devsite-feedback-site'),
+          null,
+          null,
+          null,
+          null
+        );
+      });
+      </script>
+      <div class="maia-col-3">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="/groups/">Groups</a></li>
+          <li><a href="/experts/">Experts</a></li>
+          <li><a href="/startups/">Startups</a></li>
+          <li><a href="/women-techmakers/">Women Techmakers</a></li>
+        </ul>
+      </div>
+      <div class="maia-col-3">
+        <h4>Top Products</h4>
+        <ul class="top-prod-1 left">
+          <li><a href="/advertise/">Ads</a></li>
+          <li><a href="/analytics/">Analytics</a></li>
+          <li><a href="https://developer.android.com/" class="gc-analytics-event"
+          data-category="Site-Wide Custom Events" data-label="Footer Android Link">Android</a></li>
+          <li><a href="/cast/">Cast</a></li>
+          <li><a href="/chrome/">Chrome</a></li>
+          <li><a href="https://cloud.google.com/docs/" class="gc-analytics-event"
+          data-category="Site-Wide Custom Events" data-label="Footer Cloud Link">Cloud</a></li>
+        </ul>
+        <ul class="top-prod-2 left">
+          <li><a href="/glass/">Glass</a></li>
+          <li><a href="/google-apps/">Google Apps</a></li>
+          <li><a href="/+/">Google+</a></li>
+          <li><a href="/maps/">Maps</a></li>
+          <li><a href="/commerce/wallet/">Wallet</a></li>
+          <li><a href="/youtube/">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div><!-- END DIV#MAIA-FOOTER-LOCAL -->
+
+<div id="maia-footer-global" class="footer-global">
+  <div class="maia-aux">
+    <span id="terms">
+      <a href="/site-terms/">Terms of Use</a>
+    </span>
+    <span class="pipe">
+    </span>
+    <span id="privacy">
+      <a href="http://www.google.com/intl/en/privacy/" class="gc-analytics-event"
+      data-category="Site-Wide Custom Events" data-label="Footer Privacy Link">Privacy Policy</a>
+    </span>
+
+    
+    <div id="gc-language" class="new_right">
+    <ul>
+      <li>
+        <form id="setlang" action="/i18n/setlang/" method="post">
+          <input type="hidden" name="xsrf_token" value="FYTc6jFLgvjjxpyM2716xjoxNDIyNjcxMTQzMTQyMzAw" />
+          <select id="footer_language" name="language">
+            <option value="ar"
+                >
+                العربيّة
+              </option><option value="bg"
+                >
+                български
+              </option><option value="ca"
+                >
+                català
+              </option><option value="zh-cn"
+                >
+                简体中文
+              </option><option value="zh-tw"
+                >
+                繁體中文
+              </option><option value="hr"
+                >
+                Hrvatski
+              </option><option value="cs"
+                >
+                česky
+              </option><option value="da"
+                >
+                dansk
+              </option><option value="nl"
+                >
+                Nederlands
+              </option><option value="en"
+                 selected="selected" >
+                English
+              </option><option value="fa"
+                >
+                فارسی
+              </option><option value="fi"
+                >
+                suomi
+              </option><option value="fr"
+                >
+                français
+              </option><option value="de"
+                >
+                Deutsch
+              </option><option value="el"
+                >
+                Ελληνικά
+              </option><option value="he"
+                >
+                עברית
+              </option><option value="hi"
+                >
+                Hindi
+              </option><option value="hu"
+                >
+                Magyar
+              </option><option value="id"
+                >
+                Bahasa Indonesia
+              </option><option value="it"
+                >
+                italiano
+              </option><option value="ja"
+                >
+                日本語
+              </option><option value="ko"
+                >
+                한국어
+              </option><option value="lv"
+                >
+                latviešu
+              </option><option value="lt"
+                >
+                Lithuanian
+              </option><option value="nb"
+                >
+                norsk (bokmål)
+              </option><option value="nn"
+                >
+                norsk (nynorsk)
+              </option><option value="pl"
+                >
+                polski
+              </option><option value="pt-br"
+                >
+                Português Brasileiro
+              </option><option value="pt"
+                >
+                Português
+              </option><option value="ro"
+                >
+                Română
+              </option><option value="ru"
+                >
+                Русский
+              </option><option value="sr"
+                >
+                српски
+              </option><option value="sk"
+                >
+                slovenský
+              </option><option value="sl"
+                >
+                Slovenščina
+              </option><option value="es"
+                >
+                español
+              </option><option value="sv"
+                >
+                svenska
+              </option><option value="th"
+                >
+                Thai
+              </option><option value="tr"
+                >
+                Türkçe
+              </option><option value="uk"
+                >
+                Українська
+              </option><option value="vi"
+                >
+                Vietnamese
+              </option>
+          </select>
+        </form>
+      </li>
+    </ul>
+    </div>
+    
+  </div>
+</div><!-- END DIV#MAIA-FOOTER-GLOBAL -->
+<script src="https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded" async defer></script>
+<script type="text/javascript">
+    // Add the handlers once the document has loaded.
+    $(document).ready(function() {
+      devsite.devsite.handlePlusBadgeResize($('#plusbadge'), $('#homephoto'));
+    });
+  </script>
+
+        </footer>
+      </div>
+      
+      
+  
+
+    </div>
+    <div id="search-autocomplete" class="search-results search-autocomplete" style="display:none"></div>
+    <script type="text/javascript" async="" defer="" src="//www.gstatic.com/feedback/api.js"></script>
+    
+      <script>
+        (function($) {
+          var cssHref = $('#screen-foot').attr('data-href');
+          $('#screen-foot').attr('href', cssHref);
+          $('#screen-foot').load(function() {
+            
+            devsite.timing.tick('cl');
+          });
+        })(jQuery);
+      </script>
+    
+    <script id="jqueryui" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    
+    <script type="text/javascript" src="https://developers.google.com/_static2/5f35d26378/jsi18n/?hl=en"></script>
+    <script src="https://developers.google.com/_static/5f35d26378/js/script_foot.js"></script>
+    <script>
+      
+      devsite.timing.tick('jl');
+      (function($) {
+        devsite.devsite.Init($, 'devsite',
+            '[]', '',
+            'en', true,
+            '5f35d26378', '',
+            false,
+            {"6749dcb526ce9bde6993550c7d928d24": true, "993b1906435224595bd618f6f331ee45": true, "6e6d95ece619bf85cc1ea2c6da8a4690": false});
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+    </script>
+    
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if (navigator.userAgent.match(/msie/i)) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=aclknqcuyds7o"></script>
+    
+
+    
+    <script type="text/javascript">
+    var axel = Math.random() + "";
+    var a = axel * 10000000000000;
+    document.write('<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl875;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+    </script>
+    <noscript>
+    <iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl875;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+    </noscript>
+    
+
+    <noscript>
+      <div style="display:none;">
+        <img style="display:none;" src="//www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0"/>
+      </div>
+    </noscript>
+    
+
+
+
+
+
+<script type="text/javascript" defer>
+
+
+</script>
+<script src="https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded" async defer></script>
+
+
+
+
+  </div><!-- END DIV.MAIA-MAX -->
+  </body>
+
+  
+    <script>$(function($) { devsite.devsite.reportPageLoaded(); })</script>
+    
+    <span id="devsite-request-elapsed" data-request-elapsed="103.359937668"></span>
+  
+</html>
