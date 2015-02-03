@@ -17,14 +17,14 @@ namespace GetLinks
         private uint maxDepth = 0;
         Thread anThread;
         Boolean running = false;
-        delegate void AddItem(SiteItem item);
+        delegate void UpdateList();
         delegate void Act();
         delegate void TextWriter(String str);
         Act stop;
         TextWriter setState;
-        Stack<SiteItem> uriBuf = new Stack<SiteItem>();
+        List<SiteItem> uriBuf = new List<SiteItem>();      //buffer
         List<SiteItem> uriRes = new List<SiteItem>();       //result ^.^
-        AddItem addItem;
+        UpdateList updList;
         WebClientTimeouted web;
         String cache;
         const String badURI = "<Bad URL!>";
@@ -33,7 +33,7 @@ namespace GetLinks
         {
             InitializeComponent();
             ResizeForm(this, null);
-            addItem = new AddItem(AddItemToList);
+            updList = new UpdateList(AddItemToList);
             stop = new Act(Stop);
             web = new WebClientTimeouted();
             setState = new TextWriter(SetStatus);
@@ -89,12 +89,35 @@ namespace GetLinks
             //web.CancelRequest = true;
         }
 
-        private void AddItemToList(SiteItem item)       // add Item!
+        private void AddItemToList()       // add Item!
         {
-            String resStr = new String('-', item.Depth * 2);
-            resStr += " " + item.Title;
-            resStr += " (" + item.URL + ")";
-            this.lbSites.Items.Add(resStr);
+            this.lbSites.Items.Clear();
+
+            String parString = String.Empty,
+                resstr = String.Empty;
+            int parIndex=0;
+
+            for (int i = 0; i <= maxDepth; i++)
+            {
+                var v = from l in this.uriRes where l.Depth == i select l;
+                if (v.Count() == 0)
+                    break;
+
+                foreach (var elem in v)
+                {
+                    if(elem.Depth==0){
+                        this.lbSites.Items.Add(elem.Title+" ("+elem.URL+")");
+                        break;
+                    }
+                    parString = (new String('-', 2 * (i - 1))) + " " + elem.Parent.Title + " (" + elem.Parent.URL + ")";
+                    parIndex = this.lbSites.Items.IndexOf(parString);
+                    if(parIndex<1)      //no parents
+                        this.lbSites.Items.Add((new String('-', 2 * i)) + " " + elem.Title + " (" + elem.URL + ")");
+                    else
+                        this.lbSites.Items.Insert(parIndex+1, (new String('-', 2 * i)) + " " + elem.Title + " (" + elem.URL + ")");
+                }
+            }
+            //this.lbSites.Items.Add(resStr);
             this.lbSites.SelectedIndex = this.lbSites.Items.Count - 1;      // PseudoAutoScroll...
             this.lbSites.SelectedIndex = -1;
         }
@@ -143,7 +166,7 @@ namespace GetLinks
                 this.uriRes.Clear();
                 this.uriBuf.Clear();
 
-                uriBuf.Push(new SiteItem() { Depth = 0, Title = StringWorker.GetTitle(this.tbRootSite.Text), URL = this.tbRootSite.Text });
+                uriRes.Add(new SiteItem() { Depth = 0, Title = StringWorker.GetTitle(this.tbRootSite.Text), URL = this.tbRootSite.Text, Parent = null });
                 this.maxDepth = UInt32.Parse(this.tbMaxDepth.Text);
 
                 anThread = new Thread(new ThreadStart(Run));
@@ -159,64 +182,54 @@ namespace GetLinks
 
         private void Run()      //main loop
         {
-            
-            //this.lbSites.Invoke(addItem, new SiteItem() { Depth = n, Title = "SomeTitle" + n.ToString(), URL = "http://url" + n.ToString() + ".com" });
-            SiteItem curItem = new SiteItem();
-            while (uriBuf.Count > 0)
+            for (int i = 0; i <= maxDepth; i++)
             {
-                if (!running)
+                if ((!running))
                     break;
-                curItem = uriBuf.Pop();
-                //if (curItem.Depth > maxDepth)
-                //    continue;
-                try
+                var elems = from el in uriRes where el.Depth == i select el;        //get current-leveled items
+                foreach (var v in elems)
                 {
-                    lblStatus.Invoke(setState, "Getting data from " + curItem.URL);
-                    cache = web.DownloadString(curItem.URL);
-                    /* enc = StringWorker.GetEncoding(cache);
-                     if (enc != web.Encoding)
-                     {
-                         web.Encoding = enc;
-                         cache = cache = web.DownloadString(curItem.URL);        //re-download?!
-                     }*/
-                }
-                catch (WebException e)
-                {
-                    if ((from u in uriRes where u.URL.Substring(u.URL.LastIndexOf('/')).Equals(curItem.URL.Substring(curItem.URL.LastIndexOf('/'))) select u).Count() < 1)
+                    if (!running) break;
+                    try
                     {
-                        curItem.Title = "[" + e.Message + "]";
-                        this.uriRes.Add(curItem);               //add to list
-                        this.lbSites.Invoke(addItem, curItem);  //..and to listbox control
+                        lblStatus.Invoke(setState, "Getting data from " + v.URL);
+                        cache = web.DownloadString(v.URL);
                     }
-                    continue;
-                }
-                catch (Exception e)
-                {
-                    continue;
+                    catch (WebException e)
+                    {
+                        //if ((from u in uriRes where u.URL.Substring(u.URL.LastIndexOf('/')).Equals(v.URL.Substring(v.URL.LastIndexOf('/'))) select u).Count() < 1)
+                        {
+                            v.Title = "[" + e.Message + "]";
+                        }
+                        continue;
+                    }
+                    catch (Exception e)
+                    {
+                        continue;
+                    }
+
+                    lblStatus.Invoke(setState, "Processing " + v.URL);
+
+                    v.Title = StringWorker.GetTitle(cache);
+                    if (v.Depth == maxDepth)
+                        continue;
+
+                    foreach (var curUri in StringWorker.GetLinks(cache))        // get more links (level up)
+                    {
+                        if (((from u in uriRes where u.URL.Substring(u.URL.LastIndexOf('/')).Equals(curUri.Substring(curUri.LastIndexOf('/'))) select u).Count() < 1) &&     //this element was not...+ ho http\https
+                            ((from u in uriBuf where u.URL.Substring(u.URL.LastIndexOf('/')).Equals(curUri.Substring(curUri.LastIndexOf('/'))) select u).Count() < 1))
+                            this.uriBuf.Add (new SiteItem() { Depth = v.Depth + 1, URL = curUri, Parent = v, Title="Resolving..." });     //links => buf, then  buf => res
+                    }
                 }
 
-                lblStatus.Invoke(setState, "Processing " + curItem.URL);
-                
-                curItem.Title = StringWorker.GetTitle(cache);
-                //FSWorker.SaveCache(cache, curItem.URL.Substring(curItem.URL.IndexOf("//") + 1));       ////remove!!!
+                foreach (var site in uriBuf)
+                    this.uriRes.Add(site);
 
-                if ((from u in uriRes where u.URL.Substring(u.URL.LastIndexOf('/')).Equals(curItem.URL.Substring(curItem.URL.LastIndexOf('/'))) select u).Count() < 1)
-                {
-                    this.uriRes.Add(curItem);               //add to list
-                    this.lbSites.Invoke(addItem, curItem);  //..and to listbox control
-                }
-                else continue;
+                this.lbSites.Invoke(updList);
 
-                if (curItem.Depth >= maxDepth)      // better is ==, but don't exists excess checkings
-                    continue;
-
-                foreach (var curUri in StringWorker.GetLinks(cache))        // get more links (level up)
-                {
-                    if (((from u in uriRes where u.URL.Substring(u.URL.LastIndexOf('/')).Equals(curUri.Substring(curUri.LastIndexOf('/'))) select u).Count() < 1))// &&     //this element was not...+ ho http\https
-                        this.uriBuf.Push(new SiteItem() { Depth = curItem.Depth + 1, URL = curUri, Parent = curItem });
-                }
-                if (!running) break;
+                uriBuf.Clear();
             }
+            this.lbSites.Invoke(updList);
             MessageBox.Show("Site found: " + uriRes.Count, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.btnAnalyze.Invoke(stop);
         }

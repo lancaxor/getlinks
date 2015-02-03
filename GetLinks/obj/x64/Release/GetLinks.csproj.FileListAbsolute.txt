@@ -5,4 +5,3 @@ E:\workspace\vsprojects\GetLinks\GetLinks\obj\x64\Release\GetLinks.Properties.Re
 E:\workspace\vsprojects\GetLinks\GetLinks\obj\x64\Release\GetLinks.csproj.GenerateResource.Cache
 E:\workspace\vsprojects\GetLinks\GetLinks\obj\x64\Release\GetLinks.exe
 E:\workspace\vsprojects\GetLinks\GetLinks\obj\x64\Release\GetLinks.pdb
-E:\workspace\vsprojects\GetLinks\GetLinks\obj\x64\Release\GetLinks.csprojResolveAssemblyReference.cache
